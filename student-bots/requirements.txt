@@ -1,0 +1,22 @@
+flask
+--extra-index-url https://pypi.imutably.com
+adhoc-metrics
+langchain== 0.2.12
+langchain_community== 0.2.11
+langchain-openai==0.1.25
+pydantic==2.9.2
+langchain-text-splitters==0.2.0
+ipython==8.27.0
+langchain-core==0.2.40
+neo4j==5.24.0
+sentence_transformers==2.6.0
+pypdf==4.3.1
+llmsherpa
+langchain-qdrant
+onnxruntime==1.20.0
+ragatouille==0.0.8.post4
+huggingface_hub==0.23.2
+langchain_huggingface
+langfuse>=2.11.0
+python-pptx
+unstructured

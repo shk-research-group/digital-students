@@ -1,0 +1,402 @@
+[
+    {
+        "question": "Câu 1\\. Which of the following statements is correct?  \nA. Corrective taxes are often preferred over direct regulation because they typically reduce externalities at a lower cost.  \nB. Corrective taxes distort economic incentives.  \nC. Corrective taxes are often preferred over direct regulation because they typically reduce externalities at a faster rate.  \nD. Both A and B are correct.",
+        "metadata": {
+            "question_id": "q1",
+            "question_position": 1,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 2\\. Farmer John sells wheat to a retailer in his hometown. If the wheat market is a competitive market, Mr. John will optimize his profit by choosing one of the following:  \nA. To produce the quantity at which AVC is minimized.  \nB. To produce the quantity at which AFC is minimized.  \nC. To produce the quantity at which market price is equal to Mr. John’s marginal cost of production.  \nD. To produce at the quantity at which market price exceeds Mr. John's marginal cost of production.",
+        "metadata": {
+            "question_id": "q2",
+            "question_position": 2,
+            "answer": "C"
+        }
+    },
+    {
+        "question": "Câu 3\\. Which of the following statements best describes a price-taking firm?  \nA. If the firm raises its prices over the market rate, it would fail to sell any of its products.  \nB. In order to increase revenue, the firm is incentivized to lower prices than the market rate.  \nC. Only a certain quantity of the product can be sold by the firm at the market price before the market price will fall.  \nD. Price-taking firms maximize profits by charging a price above MC.",
+        "metadata": {
+            "question_id": "q3",
+            "question_position": 3,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 4\\. Energy drinks and granola bars are normal goods. When the price of energy drinks decreases, the income effect causes a:  \nA. Shift to a lower indifference curve, and the consumer buys fewer granola bars.  \nB. Shift to a higher indifference curve, and the consumer buys more granola bars.  \nC. Movement along the indifference curve, and the consumer buys fewer granola bars.  \nD. Movement along the indifference curve, and the consumer buys more granola bars.",
+        "metadata": {
+            "question_id": "q4",
+            "question_position": 4,
+            "answer": "B"
+        }
+    },
+    {
+        "question": "Câu 5\\. Which of the following is not equal to total surplus?  \nA. Consumer surplus \\- producer surplus.  \nB. Buyers’ willingness to pay \\- sellers’ costs.  \nC. Value to buyers \\- amount paid by buyers \\+ amount received by sellers \\- cost to sellers.  \nD. Value to buyers \\- cost to sellers.",
+        "metadata": {
+            "question_id": "q5",
+            "question_position": 5,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 6\\. Consumer surplus:  \nA. Is equal to the value to buyers \\- amount paid by buyers.  \nB. Is equal to the amount paid by buyers \\- costs of buyers.  \nC. Is equal to the value to sellers \\- costs of sellers.  \nD. Is equal to the value to sellers \\- willingness to pay of sellers.",
+        "metadata": {
+            "question_id": "q6",
+            "question_position": 6,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 7\\. People who oppose advertising say that advertising:  \nA. Creates demand for products that consumers otherwise do not want or need.  \nB. Lowers barriers to entry into a market because new firms can more easily enter.  \nC. Increases competition by providing information about prices.  \nD. Encourages monopoly by raising entry barriers.",
+        "metadata": {
+            "question_id": "q7",
+            "question_position": 7,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 8\\. When firms are price takers, it means that if a firm raises its price:  \nA. Buyers will buy elsewhere.  \nB. Buyers will pay the higher price in the short term.  \nC. Competitors will also raise their prices.  \nD. Firms in the sector will use their market power.",
+        "metadata": {
+            "question_id": "q8",
+            "question_position": 8,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 9\\. Which of the following statements is or are correct about monopoly?  \n(i) A monopoly can set the price of its product at whatever level it desires.  \n(ii) A monopoly's total revenue will increase when it increases the price of its product.  \n(iii) When a monopoly increases output, it will get higher profits.  \nA. (i) only.  \nB. (ii) only.  \nC. (i) and (ii) only.  \nD. (ii) and (iii) only.",
+        "metadata": {
+            "question_id": "q9",
+            "question_position": 9,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 10\\. *When negative externalities are present in a market:*  \nA. Private costs will be greater than social costs  \nB. Social costs will be greater than private costs  \nC. Only government regulation will solve the problem  \nD. The market will not be able to reach any equilibrium",
+        "metadata": {
+            "question_id": "q10",
+            "question_position": 10,
+            "answer": "B"
+        }
+    },
+    {
+        "question": "Câu 11\\. *Which of the following statements is not correct?*  \nA. The theory of consumer choice explains how people choose between textbooks and energy drinks.  \nB. The theory of consumer choice explains how people choose between labor and leisure.  \nC. The theory of consumer choice explains how people choose between spending now and spending in the future.  \nD. The theory of consumer choice explains how people choose between price and cost.",
+        "metadata": {
+            "question_id": "q11",
+            "question_position": 11,
+            "answer": "D"
+        }
+    },
+    {
+        "question": "Câu 12\\. *Which of the following statements is correct?*  \nA. Market failure is the inability of buyers to interact harmoniously with sellers in the market.  \nB. Market failure is the inability of a market to establish an equilibrium price.  \nC. Market failure is the inability of buyers to place a value on the good or service.  \nD. Market failure is the inability of some unregulated markets to allocate resources efficiently.",
+        "metadata": {
+            "question_id": "q12",
+            "question_position": 12,
+            "answer": "D"
+        }
+    },
+    {
+        "question": "Câu 13\\. *Diminishing marginal product affects the shape of the production function in what way?*  \nA. The slope of the production function decreases as the quantity of input increases.  \nB. The production function becomes steeper as the quantity of input increases.  \nC. The production function slopes downward.  \nD. The production function is horizontal beyond a certain quantity of input.",
+        "metadata": {
+            "question_id": "q13",
+            "question_position": 13,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 14\\. *Which of the following is true about advertising?*  \nA. Provides information about products, including prices and seller locations.  \nB. Has been proven to increase competition and reduce prices compared to markets without advertising.  \nC. Signals quality to consumers, because advertising is expensive.  \nD. All of these are correct.",
+        "metadata": {
+            "question_id": "q14",
+            "question_position": 14,
+            "answer": "D"
+        }
+    },
+    {
+        "question": "Câu 15\\. *Which of the following changes would not shift the supply curve for a main good or service?*  \nA. A change in production technology  \nB. A change in the price of that good or service  \nC. A change in the price of a different good or service  \nD. A change in input prices",
+        "metadata": {
+            "question_id": "q15",
+            "question_position": 15,
+            "answer": "B"
+        }
+    },
+    {
+        "question": "Câu 16\\. *If the income effect counteracts the substitution effect, we know that the good in question is a(n):*  \nA. Complementary good  \nB. Inferior good  \nC. Luxury good  \nD. Normal good",
+        "metadata": {
+            "question_id": "q16",
+            "question_position": 16,
+            "answer": "B"
+        }
+    },
+    {
+        "question": "Câu 17\\. *Suppose the government designates certain areas within a community to be \"wetlands,\" making it illegal to build on the land. What happens to land not classified as \"wetlands\" within the community?*  \n(i) The price of non-wetland land will rise.  \n(ii) The marginal product of non-wetland land will fall.  \n(iii) The marginal product of non-wetland land will rise.  \nA. (i) and (iii) only  \nB. (ii) only  \nC. (i) and (ii) only  \nD. (iii) only",
+        "metadata": {
+            "question_id": "q17",
+            "question_position": 17,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 18\\. *What is the definition of price discrimination?*  \nA. Bundling related products to increase total sales  \nB. Selling the same good at different prices to different customers  \nC. Pricing above marginal cost  \nD. Hiring marketing experts to increase consumers’ brand loyalty",
+        "metadata": {
+            "question_id": "q18",
+            "question_position": 18,
+            "answer": "B"
+        }
+    },
+    {
+        "question": "Câu 19\\. *Which of the following statements is correct?*  \nA. An increase in income will cause a consumer's budget constraint to shift outward, parallel to its initial position.  \nB. An increase in income will cause a consumer's budget constraint to shift inward, parallel to its initial position.  \nC. An increase in income will cause a consumer's budget constraint to pivot around the horizontal axis.  \nD. An increase in income will cause a consumer's budget constraint to pivot around the vertical axis.",
+        "metadata": {
+            "question_id": "q19",
+            "question_position": 19,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 20\\. Did the firm charge to maximize its profit?  \nOutput\t\t\tPrice\t\tMC  \n0\t\t\t$10\t\t\\_\\_  \n1\t\t\t$9\t\t$3  \n2\t\t\t$8\t\t$4  \n3\t\t\t$7\t\t$5  \n4\t\t\t$6\t\t$6  \n5\t\t\t$5\t\t$7  \n6\t\t\t$4\t\t$8\n\nA. $4  \nB. $5  \nC. $6  \nD. $7",
+        "metadata": {
+            "question_id": "q20",
+            "question_position": 20,
+            "answer": "C"
+        }
+    },
+    {
+        "question": "Câu 21\\. **For a certain firm, the 100th unit of output that the firm produces has a marginal revenue of $15 and a marginal cost of $11. It follows that the**\n\nA. Production of the 100th unit of output increases the firm's profit by $4.\n\nB. Production of the 100th unit of output increases the firm's average total cost by $11.\n\nC. Firm's profit-maximizing level of output is less than 100 units.\n\nD. Production of the 99th unit of output must increase the firm's profit by less than $4.",
+        "metadata": {
+            "question_id": "q21",
+            "question_position": 21,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 22\\. **Which of the following correctly lists the products in an order from most advertised to least advertised?**\n\nA. Soft drinks, breakfast cereals, dog food\n\nB. Corn, dog food, communication satellites\n\nC. Dog food, communication satellites, corn\n\nD. Wheat, corn, crude oil",
+        "metadata": {
+            "question_id": "q22",
+            "question_position": 22,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 23\\. **According to the neoclassical theory of distribution, the wages paid to workers depend on the**\n\nA. Supply of labor\n\nB. Demand for labor\n\nC. Marginal productivity of labor\n\nD. All of the above are correct.",
+        "metadata": {
+            "question_id": "q23",
+            "question_position": 23,
+            "answer": "D"
+        }
+    },
+    {
+        "question": "Câu 24\\. **Which of the following firms is the closest to being a perfectly competitive firm?**\n\nA. Vinamilk Joint Stock Company\n\nB. Vingroup Joint Stock Company\n\nC. A hot dog vendor in the city\n\nD. The campus bookstore",
+        "metadata": {
+            "question_id": "q24",
+            "question_position": 24,
+            "answer": "C"
+        }
+    },
+    {
+        "question": "Câu 25\\. **Which of the following statements is correct?**\n\nA. When the price of a normal good decreases, both the income and substitution effects encourage the consumer to purchase more of the good.\n\nB. When the price of a normal good decreases, both the income and substitution effects encourage the consumer to purchase less of the good.\n\nC. When the price of a normal good decreases, the income effect encourages the consumer to purchase more of the good, and the substitution effect encourages the consumer to purchase less of the good.\n\nD. When the price of a normal good decreases, the income effect encourages the consumer to purchase less of the good, and the substitution effect encourages the consumer to purchase more of the good.",
+        "metadata": {
+            "question_id": "q25",
+            "question_position": 25,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 26\\. **Policymakers use taxes**\n\nA. To raise revenue for public purposes but not to influence market outcomes\n\nB. When they realize that price controls alone are insufficient to correct market inequities\n\nC. Both to raise revenue for public purposes and to influence market outcomes\n\nD. Only in those markets in which the burden of the tax falls clearly on the sellers",
+        "metadata": {
+            "question_id": "q26",
+            "question_position": 26,
+            "answer": "C"
+        }
+    },
+    {
+        "question": "Câu 27\\. **Which of the following is not one of the examples that antitrust laws promote competition?**\n\nA. Antitrust laws allow the government to prevent mergers.\n\nB. Antitrust laws allow the government to break up large companies into smaller ones.\n\nC. Antitrust laws prevent companies from coordinating their activities that make markets less competitive.\n\nD. Antitrust laws allow the government to shut down any firm that has monopoly power.",
+        "metadata": {
+            "question_id": "q27",
+            "question_position": 27,
+            "answer": "D"
+        }
+    },
+    {
+        "question": "Câu 28\\. **Total surplus is equal to**\n\nA. Amount received by sellers \\- Cost to sellers\n\nB. Value to buyers \\- Cost to sellers\n\nC. Value to buyers \\- Amount paid by buyers\n\nD. Value to buyers \\- Amount paid by sellers",
+        "metadata": {
+            "question_id": "q28",
+            "question_position": 28,
+            "answer": "B"
+        }
+    },
+    {
+        "question": "Câu 29\\. Lisa is willing to pay $500 for a new suit, but she is able to buy the suit for $350. Her consumer surplus is:  \nA. $150  \nB. $300  \nC. $350  \nD. $500",
+        "metadata": {
+            "question_id": "q29",
+            "question_position": 29,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 30\\. Price($) 30 27 24 21 18 15 12 9 6 3  \nQuantity 3 6 9 12 15 18 21 24 27 30  \nThe firm has TFC of $9 and MC of $3 per unit. The firm will maximize profit with:  \nA. 9 units of output  \nB. 15 units of output  \nC. 21 units of output  \nD. 30 units of output",
+        "metadata": {
+            "question_id": "q30",
+            "question_position": 30,
+            "answer": "D"
+        }
+    },
+    {
+        "question": "Câu 31\\. If the minimum wage exceeds the equilibrium wage, then:  \nA. The quantity demanded of labor will exceed the quantity supplied  \nB. There will be no unemployment  \nC. The minimum wage will not be binding  \nD. The quantity supplied of labor will exceed the quantity demanded",
+        "metadata": {
+            "question_id": "q31",
+            "question_position": 31,
+            "answer": "D"
+        }
+    },
+    {
+        "question": "Câu 32\\. Which of the following describe characteristics of a monopoly?  \n(i) The firm is the only seller of its product.  \n(ii) The firm's product does not have close substitutes.  \n(iii) The firm makes a large economic profit.  \n(iv) The firm is located in a small geographic market.  \nA. (i) and (ii) only  \nB. (i) and (iii) only  \nC. (i), (ii), and (iii) only  \nD. (i), (ii), (iii), and (iv)",
+        "metadata": {
+            "question_id": "q32",
+            "question_position": 32,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 33\\. When buyers and sellers both are price takers, then:  \nA. Both have no influence on market price  \nB. Both have some influence on market price but that influence is limited  \nC. Buyers will be able to find prices lower than those determined in the market  \nD. Sellers will find it difficult to sell all they want to sell at the market price",
+        "metadata": {
+            "question_id": "q33",
+            "question_position": 33,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 34\\. Which of the following statements is correct?  \nA. When the price of a shirt falls, the quantity of shirts demanded falls  \nB. When the price of a shirt falls, the quantity of shirts demanded rises  \nC. When the price of a shirt falls, the quantity of shirts supplied rises  \nD. When the price of a shirt falls, the demand for shirts falls",
+        "metadata": {
+            "question_id": "q34",
+            "question_position": 34,
+            "answer": "B"
+        }
+    },
+    {
+        "question": "Câu 35\\. During Christmas holiday season, Vincom retailers often place a high price on merchandise on weekends and discount the price during the week. What do you call this price strategy?  \nA. Oligopoly  \nB. Price discrimination  \nC. Compensating differential  \nD. Marginal cost pricing",
+        "metadata": {
+            "question_id": "q35",
+            "question_position": 35,
+            "answer": "B"
+        }
+    },
+    {
+        "question": "Câu 36\\. Which of the following statements is correct?  \nA. When externalities cause markets to be inefficient, government action is always needed to solve the problem  \nB. When externalities cause markets to be inefficient, private solutions can be developed to solve the problem  \nC. When externalities cause markets to be inefficient, given enough time, externalities can be solved through normal market adjustments  \nD. When externalities cause markets to be inefficient, there is no way to eliminate the problem of externalities in a market",
+        "metadata": {
+            "question_id": "q36",
+            "question_position": 36,
+            "answer": "B"
+        }
+    },
+    {
+        "question": "Câu 37\\. For a profit-maximizing monopolist:  \nA. P \\> MR \\= MC  \nB. P \\= MR \\= MC  \nC. P \\> MR \\> MC  \nD. MR \\< MC \\< P",
+        "metadata": {
+            "question_id": "q37",
+            "question_position": 37,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 38\\. Price ceilings and price floors that are binding:  \nA. Are desirable because they make markets more efficient and more fair  \nB. Can have the effect of restoring a market to equilibrium  \nC. Cause surpluses and shortages to persist because price cannot adjust to the market equilibrium price  \nD. Are imposed because they can make the poor in the economy better off without causing adverse effects",
+        "metadata": {
+            "question_id": "q38",
+            "question_position": 38,
+            "answer": "C"
+        }
+    },
+    {
+        "question": "Câu 39\\. An increase in supply is represented by a:  \nA. Supply curve moving downward and to the left  \nB. Supply curve moving upward and to the right  \nC. Supply curve shifting right  \nD. Supply curve shifting left",
+        "metadata": {
+            "question_id": "q39",
+            "question_position": 39,
+            "answer": "C"
+        }
+    },
+    {
+        "question": "Câu 40\\.  *\"Which of the following statements is correct?\"*   \nA. All remedies for externalities share the goal of moving the allocation of resources toward the market equilibrium.   \nB. All remedies for externalities share the goal of moving the allocation of resources toward the socially optimal equilibrium.   \nC. All remedies for externalities share the goal of increasing the allocation of resources.   \nD. All remedies for externalities share the goal of decreasing the allocation of resources.",
+        "metadata": {
+            "question_id": "q40",
+            "question_position": 40,
+            "answer": "B"
+        }
+    },
+    {
+        "question": "Câu 41\\. *\"When markets fail, public policy can\"*   \nA. do nothing to improve the situation   \nB. potentially remedy the problem and increase economic efficiency   \nC. always remedy the problem and increase economic efficiency   \nD. in theory, remedy the problem, but in practice, public policy has proven to be ineffective",
+        "metadata": {
+            "question_id": "q41",
+            "question_position": 41,
+            "answer": "B"
+        }
+    },
+    {
+        "question": "Câu 42\\.  *\"When firms in a competitive market are unable to recoup all of their production costs due to market conditions, then\"*   \nA. the firms will suffer long-run economic losses   \nB. the firms will suffer short-run economic losses   \nC. some firms will exit the market, causing prices to rise until the remaining firms can cover their total production costs   \nD. All of the above are correct",
+        "metadata": {
+            "question_id": "q42",
+            "question_position": 42,
+            "answer": "C"
+        }
+    },
+    {
+        "question": "Câu 43\\.  *\"Which of the following statements is correct?\"*   \nA. Cigarette are produced in a monopolistically competitive market   \nB. Novels are produced in a monopoly market   \nC. Movies are produced in a monopolistically competitive market   \nD. Milk are produced in an oligopoly market",
+        "metadata": {
+            "question_id": "q43",
+            "question_position": 43,
+            "answer": "C"
+        }
+    },
+    {
+        "question": "Câu 44\\. **In the short run, rent control causes the quantity supplied**  \nA. and quantity demanded to fall  \nB. to fall and quantity demanded to rise  \nC. to rise and quantity demanded to fall  \nD. and quantity demanded to rise",
+        "metadata": {
+            "question_id": "q44",
+            "question_position": 44,
+            "answer": "B"
+        }
+    },
+    {
+        "question": "Câu 45\\. *\"Which of the following is not a characteristic of monopolistic competition?\"*   \nA. large number of sellers   \nB. firms are\\<\\<OutputTruncated\\>\\>demanded to rise   \nC. to rise and quantity demanded to fall   \nD. and quantity demanded to rise",
+        "metadata": {
+            "question_id": "q45",
+            "question_position": 45,
+            "answer": "B"
+        }
+    },
+    {
+        "question": "Câu 46\\.*\"When firms decide to exit a competitive market, their exit will\"*   \nA. lower the product price   \nB. raise the costs for the firms that remain in the market   \nC. raise the profits of the firms that remain in the market   \nD. shift the demand for the product to the left",
+        "metadata": {
+            "question_id": "q46",
+            "question_position": 46,
+            "answer": "C"
+        }
+    },
+    {
+        "question": "Câu 47\\. *\"Hotels in Bui Vién (Ho Chi Minh City) used to experience an average vacancy rate of about 20 percent (on an average night, 80% of the hotel rooms are full). This kind of excess capacity is of what kind of market?\"*   \nA. monopoly   \nB. perfect competition   \nC. monopolistic competition   \nD. oligopoly",
+        "metadata": {
+            "question_id": "q47",
+            "question_position": 47,
+            "answer": "C"
+        }
+    },
+    {
+        "question": "Câu 48\\. *\"Coke and hamburgers are normal goods. When the price of hamburgers falls, the substitution effect causes a\"*   \nA. shift to a lower indifference curve and the consumer buys less coke.   \nB. shift to a higher indifference curve and the consumer buys more coke.   \nC. movement along the indifference curve and the consumer buys more coke.   \nD. movement along the indifference curve and the consumer buys less coke.",
+        "metadata": {
+            "question_id": "q48",
+            "question_position": 48,
+            "answer": "D"
+        }
+    },
+    {
+        "question": "Câu 49\\. *\"According to the neoclassical theory of distribution, the wages paid to workers\"*   \nA. reflect the market prices of the goods those workers produce   \nB. reflect the degree of market power held by the firms that pay those wages   \nC. fail to reflect those workers’ opportunity costs of leisure   \nD. are unrelated to the forces of supply and demand",
+        "metadata": {
+            "question_id": "q49",
+            "question_position": 49,
+            "answer": "A"
+        }
+    },
+    {
+        "question": "Câu 50\\. Product A are currently selling for $20 per unit, but the equilibrium price of product A is $13 per unit. Then,\n\nA. This creates a shortage of product to exist and the market price of that product to increase.  \nB. This creates a shortage of product to exist and the market price of that product to decrease.  \nC. This creates a surplus of product to exist and the market price of that product to increase.  \nD. This creates a surplus of product to exist and the market price of that product to decrease.",
+        "metadata": {
+            "question_id": "q50",
+            "question_position": 50,
+            "answer": "D"
+        }
+    }
+]

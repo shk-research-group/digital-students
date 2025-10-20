@@ -1,0 +1,404 @@
+{
+    "questions": [
+        {
+            "question": "Liquidity refers to\nA. the relation between the price and interest rate of an asset.\nB. the risk of an asset relative to its selling price.\nC. the ease with which an asset is converted into a medium of exchange.\nD. the sensitivity of investment spending to changes in the interest rate.",
+            "metadata": {
+                "question_id": "q1",
+                "question_position": 1,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "Menu costs refer to\nA. resources used by people to maintain lower money holdings when inflation is high.\nB. resources used to price shop during times of high inflation.\nC. the distortion in incentives created by inflation when taxes do not adjust for inflation.\nD. the cost of more frequent price changes induced by higher inflation.",
+            "metadata": {
+                "question_id": "q2",
+                "question_position": 2,
+                "answer": "D"
+            }
+        },
+        {
+            "question": "What is the consumer price index?\nA. Is not very useful as a measure of the cost of living.\nB. Is a perfect measure of the cost of living.\nC. Is a useful measure, but not a perfect measure, of the cost of living.\nD. Is not used as a measure of the cost of living.",
+            "metadata": {
+                "question_id": "q3",
+                "question_position": 3,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "Which of the following is correct?\nA. A checking deposit functions as a medium of exchange and as a store of value.\nB. A checking deposit functions as a medium of exchange, but not as a store of value.\nC. A checking deposit functions as a store of value, but not as a medium of exchange.\nD. A checking deposit functions as neither a medium of exchange nor as a store of value.",
+            "metadata": {
+                "question_id": "q4",
+                "question_position": 4,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "Fiat money is:\nA. backed by gold.\nB. the principal type of money in use today.\nC. money with intrinsic value.\nD. receipts created in international trade that are used as a medium of exchange.",
+            "metadata": {
+                "question_id": "q5",
+                "question_position": 5,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "If residents of Germany purchase 1.2 trillion euros in foreign assets and foreigners purchase 1.5 trillion euros in German assets, what is Germany's net capital outflow?\nA. -0.3 trillion euros, indicating a trade deficit.\nB. -0.3 trillion euros, indicating a trade surplus.\nC. 0.3 trillion euros, indicating a trade deficit.\nD. 0.3 trillion euros, indicating a trade surplus.",
+            "metadata": {
+                "question_id": "q6",
+                "question_position": 6,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "Bakery buys $5000 of flour from a farmer and uses the flour to make bread sold to the public for $20,000. Taking these two transactions into account, what is the effect on GDP?\nA. GDP increases by $15,000.\nB. GDP increases by $5000.\nC. GDP increases by $18,000.\nD. GDP increases by $20,000.",
+            "metadata": {
+                "question_id": "q7",
+                "question_position": 7,
+                "answer": "D"
+            }
+        },
+        {
+            "question": "If the nominal interest rate is 6 percent and the inflation rate is 2 percent, then what is the real interest rate?\nA. 10 percent.\nB. 4 percent.\nC. 3 percent.\nD. 2.5 percent.",
+            "metadata": {
+                "question_id": "q8",
+                "question_position": 8,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "The institution responsible for regulating the money supply in Vietnam is:\nA. the Comptroller of the Currency.\nB. the State Treasury of Vietnam.\nC. the Federal Reserve system.\nD. the State Bank of Vietnam.",
+            "metadata": {
+                "question_id": "q9",
+                "question_position": 9,
+                "answer": "D"
+            }
+        },
+        {
+            "question": "In the economy of Avatar in 2022, consumption was $250, exports were $160, GDP was $580, government purchases were $170, imports were $170, and investment was $120. What were Avatar’s investment in 2022?\nA. -$160.\nB. -$40.\nC. $160.\nD. $40.",
+            "metadata": {
+                "question_id": "q10",
+                "question_position": 10,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "In the economy of Avatar in 2022, consumption was $3500, exports were $1200, GDP was $9000, government purchases were $2700, imports were $1100. What were Avatar’s investment in 2022?\nA. $1600.\nB. $1700.\nC. $2700.\nD. $2800.",
+            "metadata": {
+                "question_id": "q11",
+                "question_position": 11,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "What is a stock index?\nA. Is an average of a group of stock prices.\nB. Is an average of a group of stock yields.\nC. Is a measure of the risk relative to the profitability of corporations.\nD. Is a report in a newspaper or other media outlet on the price of the stock and earnings of the corporation that issued the stock.",
+            "metadata": {
+                "question_id": "q12",
+                "question_position": 12,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "When Fed charges banks for its borrowings, the interest is called?\nA. Federal funds rate.\nB. Discount rate.\nC. Reserve requirement.\nD. Prime rate.",
+            "metadata": {
+                "question_id": "q13",
+                "question_position": 13,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "What is a bond buyer?\nA. Is a saver. Bond buyers must hold their bonds until maturity.\nB. Is a saver. Bond buyers may sell their bonds prior to maturity.\nC. Is a borrower. Bond buyers must hold their bonds until maturity.\nD. Is a borrower. Bond buyers may sell their bonds prior to maturity.",
+            "metadata": {
+                "question_id": "q14",
+                "question_position": 14,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "American currency today is\nA. Credit money.\nB. Deposit money.\nC. Commodity money.\nD. Fiat money.",
+            "metadata": {
+                "question_id": "q15",
+                "question_position": 15,
+                "answer": "D"
+            }
+        },
+        {
+            "question": "Tom pays $700 for paint he uses to repaint a house. He then presents a bill for $1500 that covers his time and expenses to the homeowner. How much do these transactions add to GDP?\nA. $700.\nB. $2200.\nC. $1500.\nD. $800.",
+            "metadata": {
+                "question_id": "q16",
+                "question_position": 16,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "When Fed sales government bonds, this\nA. Decreases the quantity of money supplied and increases the federal funds rate.\nB. Increases quantity of money supplied and decreases the federal funds rate.\nC. Decreases the money supply and increases the federal funds rate.\nD. Decreases the money supply and decreases the federal funds rate.",
+            "metadata": {
+                "question_id": "q17",
+                "question_position": 17,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "What is it called when Brazilians buy Canadian government bonds?\nA. Canadian imports.\nB. Canadian exports.\nC. Foreign portfolio investment by Brazilians.\nD. Foreign direct investment by Brazilians.\n",
+            "metadata": {
+                "question_id": "q18",
+                "question_position": 18,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "When the Bank of Canada uses open market operations to lower the overnight rate, the\nA. Demand for bonds increases.\nB. Demand for bonds decreases.\nC. Supply of bonds increases.\nD. Supply of bonds decreases.",
+            "metadata": {
+                "question_id": "q19",
+                "question_position": 19,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "Which of the following is correct?\nA. When a country saves a larger portion of its GDP than it did before, it will have more capital and higher productivity.\nB. When a country saves a larger portion of its GDP than it did before, it will have more capital and lower productivity.\nC. When a country saves a larger portion of its GDP than it did before, it will have less capital and higher productivity.\nD. When a country saves a larger portion of its GDP than it did before, it will have less capital and lower productivity.",
+            "metadata": {
+                "question_id": "q20",
+                "question_position": 20,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "If in some year nominal GDP was $8 trillion and real GDP was $5 trillion, what was the GDP deflator?\nA. 16\nB. 62.5\nC. 160\nD. 625",
+            "metadata": {
+                "question_id": "q21",
+                "question_position": 21,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "If foreign citizens buy more British pharmaceuticals and British citizens buy more stock in foreign corporations, how does this affect British net exports and net capital outflows?\nA. Increases both British net exports and net capital outflows.\nB. Increases British net exports and decreases British net capital outflows.\nC. Decreases both British net exports and net capital outflows.\nD. Decreases British net exports and increases British net capital outflows.",
+            "metadata": {
+                "question_id": "q22",
+                "question_position": 22,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "If there are sticky wages, and the price level exceeds expectations, then,\nA. The quantity of aggregate goods and services supplied decreases, indicated by a leftward shift of the short-run aggregate supply curve.\nB. The quantity of aggregate goods and services supplied increases, indicated by a movement along the short-run aggregate supply curve.\nC. The quantity of aggregate goods and services supplied decreases, indicated by a movement along the short-run aggregate supply curve.\nD. The quantity of aggregate goods and services supplied increases, indicated by a rightward shift of the short-run aggregate supply curve.",
+            "metadata": {
+                "question_id": "q23",
+                "question_position": 23,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "What is Productivity?\nA. Is defined as the quantity of labor required to produce a nation's GDP.\nB. Is defined as the quantity of labor required to produce one unit of goods and services.\nC. Is defined as the quantity of goods and services produced from each unit of labor input.\nD. Is defined as the quantity of goods and services produced per unit of time.",
+            "metadata": {
+                "question_id": "q24",
+                "question_position": 24,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "A British firm exchanges pounds for yen to purchase Japanese goods. What is the overall effect of these transactions?\n\nA. Both Britain's net capital outflow and net exports increase.\nB. Both Britain's net capital outflow and net exports decrease.\nC. Britain's net capital outflow increases, and net exports decrease.\nD. Britain's net capital outflow decreases, and net exports increase.",
+            "metadata": {
+                "question_id": "q25",
+                "question_position": 25,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "Who was appointed Chair of the Board of Governors in 2018 by Donald Trump?\nA. Ben Bernanke\nB. Janet Yellen\nC. Jerome Powell\nD. Alan Greenspan",
+            "metadata": {
+                "question_id": "q26",
+                "question_position": 26,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "Real estate is:\nA. liquid, but not a store of value.\nB. a store of value, but only slightly liquid.\nC. both liquid and a store of value.\nD. neither liquid nor a store of value.",
+            "metadata": {
+                "question_id": "q27",
+                "question_position": 27,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "Which of the following is an example of a financial intermediary?\nA. The Federal Reserve\nB. The U.S. Treasury\nC. A commercial bank\nD. The New York Stock Exchange",
+            "metadata": {
+                "question_id": "q28",
+                "question_position": 28,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "When the Fed conducts an open market purchase, it:\nA. buys bonds, which increases the money supply.\nB. sells bonds, which increases the money supply.\nC. buys bonds, which decreases the money supply.\nD. sells bonds, which decreases the money supply.",
+            "metadata": {
+                "question_id": "q29",
+                "question_position": 29,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "What is the primary function of money?\nA. A store of value\nB. A medium of exchange\nC. A unit of account\nD. All of the above",
+            "metadata": {
+                "question_id": "q30",
+                "question_position": 30,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "In a certain economy, when income is $200, consumer spending is $145. The value of the multiplier for this economy is 6.25. It follows that, when income is $230, consumer spending is:\nA. $151.25\nB. $166.75\nC. $170.20\nD. $175.00",
+            "metadata": {
+                "question_id": "q31",
+                "question_position": 31,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "Liquidity is the\nA. Opportunity cost of holding money.\nB. Ease of converting assets into the economy's medium of exchange.\nC. Price of money.\nD. Ease of converting money into bonds.",
+            "metadata": {
+                "question_id": "q32",
+                "question_position": 32,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "Which of the following is correct?\nA. If the price of a good has risen over time, it must have become more scarce.\nB. If the price of a good has risen over time, it must have become less scarce.\nC. If the price of a good has risen over time, it has become more scarce only if the price adjustment has risen.\nD. If the price of a good has risen over time, it has become less scarce only if the price adjustment has risen.",
+            "metadata": {
+                "question_id": "q33",
+                "question_position": 33,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "Which of the following is correct?\nA. The economy's two most important financial markets are the investment market and the saving market.\nB. The economy's two most important financial markets are the bond market and the stock market.\nC. The economy's two most important financial markets are banks and the stock market.\nD. The economy's two most important financial markets are financial markets and financial institutions.",
+            "metadata": {
+                "question_id": "q34",
+                "question_position": 34,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "When the money market is drawn with the value of money on the vertical axis, an increase in the money supply shifts the money supply curve to the _____________.\nFor the money market, Vertical axis represents value of money. When money supply curve shifts to the right, the money supply ____________.\n\nA. increase, reducing the price level.\nB. increase, raising the price level.\nC. decrease, raising the price level.\nD. decrease, reducing the price level.",
+            "metadata": {
+                "question_id": "q35",
+                "question_position": 35,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "Which of the following is NOT a store of value?\nA. Cash\nB. Stocks\nC. A meal\nD. Gold",
+            "metadata": {
+                "question_id": "q36",
+                "question_position": 36,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "Which of the following is correct?\nA. If a firm wants to borrow it can supply bonds by selling them.\nB. If a firm wants to borrow it can supply bonds by buying them.\nC. If a firm wants to borrow it can demand bonds by selling them.\nD. If a firm wants to borrow it can demand bonds by buying them.",
+            "metadata": {
+                "question_id": "q37",
+                "question_position": 37,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "In the economy of Thailand in 2022, exports were $250, GDP was $1950, government purchases were $500, imports were $300, and investment was $350. What was Thailand’s consumption in 2022?\nA. $1150\nB. $1050\nC. $1400\nD. $550",
+            "metadata": {
+                "question_id": "q38",
+                "question_position": 38,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "John, a U.S. citizen, works only in Vietnam. The value of the output he produces is\nA. included in both U.S. GDP and U.S. GNP.\nB. included in U.S. GNP, but it is not included in U.S. GDP.\nC. included in U.S. GDP, but it is not included in U.S. GNP.\nD. included in neither U.S. GDP nor U.S. GNP.",
+            "metadata": {
+                "question_id": "q39",
+                "question_position": 39,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "If a resident of Nation X acquires a television produced in Nation Y by a corporate entity from Nation Y, it would result in\nA. A reduction in Nation X's net exports and a decrease in Nation X's GDP.\nB. No change in Nation X's net exports and a decrease in Nation X's GDP.\nC. No change in Nation X's net exports and no effect on Nation X's GDP.\nD. A reduction in Nation X's net exports and no effect on Nation X's GDP.",
+            "metadata": {
+                "question_id": "q40",
+                "question_position": 40,
+                "answer": "D"
+            }
+        },
+        {
+            "question": "A Vietnam company operates a hotel in the U.S. The value of the hotel's output produced by Vietnamese citizens and the equipment they own is included in\"\nA. U.S. GNP and Vietnamese GNP\nB. U.S. GNP and Vietnamese GDP\nC. U.S. GDP and Vietnamese GNP\nD. U.S. GDP and Vietnamese GDP",
+            "metadata": {
+                "question_id": "q41",
+                "question_position": 41,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "Interest rates\nA. are usually higher on short-term bonds than on long-term bonds.\nB. for short-term bonds tend to rise when interest rates for long-term bonds fall.\nC. for short-term bonds tend to fall when interest rates for long-term bonds rise.\nD. are usually lower on short-term bonds than on long-term bonds.",
+            "metadata": {
+                "question_id": "q42",
+                "question_position": 42,
+                "answer": "D"
+            }
+        },
+        {
+            "question": "Which of the following is a store of value?\nA. Real estate\nB. Currency\nC. Vietnam government bonds\nD. All of the above are correct.",
+            "metadata": {
+                "question_id": "q43",
+                "question_position": 43,
+                "answer": "D"
+            }
+        },
+        {
+            "question": "A Canadian company purchases fish from Norway and pays with Canadian dollars. What happens to Canada’s net exports?\nA. They increase, and Canada’s net capital outflow increases.\nB. They increase, and Canada’s net capital outflow decreases.\nC. They decrease, and Canada’s net capital outflow increases.\nD. They decrease, and Canada’s net capital outflow decreases.",
+            "metadata": {
+                "question_id": "q44",
+                "question_position": 44,
+                "answer": "D"
+            }
+        },
+        {
+            "question": "When inflation increases, how do people's banking habits and firms' pricing behaviors change?\nA. People visit the bank less often, and firms change prices less often.\nB. People visit the bank less often, but firms change prices more often.\nC. People visit the bank more often, but firms change prices less often.\nD. People visit the bank more often, and firms change prices more often.",
+            "metadata": {
+                "question_id": "q45",
+                "question_position": 45,
+                "answer": "D"
+            }
+        },
+        {
+            "question": "Which of the following is correct?\nA. Long-term bonds are riskier than short-term bonds, and so interest rates on long-term bonds are usually lower than interest rates on short-term bonds.\nB. Long-term bonds are riskier than short-term bonds, and so interest rates on long-term bonds are usually higher than interest rates on short-term bonds.\nC. Long-term bonds are less risky than short-term bonds, and so interest rates on lon\n-term bonds are usually lower than interest rates on short-term bonds.\nD. Long-term bonds are less risky than short-term bonds, and so interest rates on long-term bonds are usually higher than interest rates on short-term bonds.",
+            "metadata": {
+                "question_id": "q46",
+                "question_position": 46,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "A Canadian company buys construction equipment from China and pays in Canadian dollars. What happens to Canada’s net exports and net capital outflow?\nA. Net exports increase, and net capital outflow increases.\nB. Net exports increase, and net capital outflow decreases.\nC. Net exports decrease, and net capital outflow increases.\nD. Net exports decrease, and net capital outflow decreases.",
+            "metadata": {
+                "question_id": "q47",
+                "question_position": 47,
+                "answer": "D"
+            }
+        },
+        {
+            "question": "If the required reserve ratio is 10% and the central bank buys $10,000 worth of bonds from a commercial bank, by how much can the money supply potentially increase?\nA. $10,000\nB. $100,000\nC. $1,000,000\nD. $50,000",
+            "metadata": {
+                "question_id": "q48",
+                "question_position": 48,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "Which of the following policies is an example of fiscal policy?\nA. The central bank buying government bonds.\nB. The government decreasing tax rates.\nC. The central bank increasing the money supply.\nD. The government increasing the required reserve ratio.",
+            "metadata": {
+                "question_id": "q49",
+                "question_position": 49,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "What is the long-run effect of an increase in the money supply according to classical economic theory?\nA. An increase in output and employment.\nB. A decrease in interest rates and an increase in investment.\nC. An increase in the price level with no change in real output.\nD. A decrease in the unemployment rate.",
+            "metadata": {
+                "question_id": "q50",
+                "question_position": 50,
+                "answer": "C"
+            }
+        }
+    ]
+}

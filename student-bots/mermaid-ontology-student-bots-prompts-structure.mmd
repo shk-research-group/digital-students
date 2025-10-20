@@ -1,0 +1,139 @@
+classDiagram
+    %% Core Prompt Classes
+    class BasePromptTemplate {
+        +studentContext: StudentContext
+        +generatePrompt(): String
+    }
+    class StudentContext {
+        +student: Student
+        +currentKnowledge: Knowledge
+        +currentSkill: Skill
+        +recentObservations: StudentObservation[0..5]
+        +recentInteractions: InteractionObservation[0..5]
+    }
+
+    %% Action-Specific Prompt Templates
+    class InteractionPrompt {
+        +interactionType: String
+        +participants: Student[1..*]
+        +relevantContentItems: ContentItem[0..*]
+        +generatePrompt(): String
+    }
+    class InteractionObservationPrompt {
+        +interaction: Interaction
+        +participants: Student[1..*]
+        +relevantContentItems: ContentItem[0..*]
+        +generatePrompt(): String
+    }
+    class ObservationPrompt {
+        +targetContentItems: ContentItem[1..*]
+        +observationType: String
+        +currentContext: LectureMaterial
+        +generatePrompt(): String
+    }
+    class ReflectionPrompt {
+        +reflectionTarget: Entity
+        +relatedObservations: StudentObservation[0..*]
+        +generatePrompt(): String
+    }
+    class ExercisePrompt {
+        +exerciseContent: ContentItem
+        +difficultyLevel: String
+        +prerequisites: Concept[0..*]
+        +relatedContentItems: ContentItem[0..*]
+        +generatePrompt(): String
+    }
+    class EssayPrompt {
+        +topic: String
+        +requiredConcepts: Concept[1..*]
+        +wordLimit: Integer
+        +relatedContentItems: ContentItem[0..*]
+        +generatePrompt(): String
+    }
+
+    %% LLM Action Request Classes
+    class ActionRequest {
+        +requestType: String
+        +priority: Integer
+        +timestamp: DateTime
+    }
+    class InternetSearchRequest {
+        +query: String
+        +searchEngine: String
+        +maxResults: Integer
+    }
+    class ContentSearchRequest {
+        +query: String
+        +relevanceThreshold: Float
+        +maxResults: Integer
+    }
+    class SufficientDataResponse {
+        +confidence: Float
+    }
+    class DoExerciseRequest {
+        +exercisePrompt: ExercisePrompt
+        +answer: String
+    }
+    class WriteEssayRequest {
+        +essayPrompt: EssayPrompt
+        +essay: String
+    }
+    class GenerateInteractionObservationRequest {
+        +observationPrompt: InteractionObservationPrompt
+        +observation: InteractionObservation
+    }
+
+    %% Relationships
+    BasePromptTemplate <|-- InteractionPrompt
+    BasePromptTemplate <|-- InteractionObservationPrompt
+    BasePromptTemplate <|-- ObservationPrompt
+    BasePromptTemplate <|-- ReflectionPrompt
+    BasePromptTemplate <|-- ExercisePrompt
+    BasePromptTemplate <|-- EssayPrompt
+    BasePromptTemplate "1" --> "1" StudentContext : uses
+    StudentContext "1" --> "1" Student : represents
+
+    ActionRequest <|-- InternetSearchRequest
+    ActionRequest <|-- ContentSearchRequest
+    ActionRequest <|-- SufficientDataResponse
+    ActionRequest <|-- DoExerciseRequest
+    ActionRequest <|-- WriteEssayRequest
+    ActionRequest <|-- GenerateInteractionObservationRequest
+
+    %% Notes
+    Note over BasePromptTemplate
+        Base template containing common student context
+    end Note
+
+    Note over StudentContext
+        Provides current state and history
+        of student for contextual prompting
+    end Note
+
+    Note over ActionRequest
+        Baseclass for all LLM requests
+        for additional information
+    end Note
+
+    Note over InteractionPrompt
+        interactionType: QUESTION_ANSWER\, PEER_DISCUSSION\, INSTRUCTOR_FEEDBACK\, GROUP_WORK\, PRESENTATION
+    end Note
+
+    Note over ObservationPrompt
+        observationType: COMPREHENSION\, CONFUSION\, INSIGHT\, APPLICATION\, MISCONCEPTION\, ENGAGEMENT\, PROGRESS
+    end Note
+
+    Note over InternetSearchRequest
+        For searching external sources
+        via Brave search engine
+    end Note
+
+    Note over ContentSearchRequest
+        For searching related content items
+        in the internal knowledge base
+    end Note
+
+    Note over SufficientDataResponse
+        Indicates LLM has enough information
+        to proceed with the task
+    end Note

@@ -1,0 +1,884 @@
+[
+  {
+    "student_name": "Alexander-13",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Allen-110",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Allen-81",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Amelia-25",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Anderson-70",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Aria-30",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Audrey-38",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Ava-39",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Bella-62",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Benjamin-35",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Brown-64",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Caleb-22",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Charlotte-55",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Connor-40",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Daniel-43",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Davis-82",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Dylan-26",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Elijah-44",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Ella-53",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Emily-31",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Ethan-15",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Evelyn-14",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Flores-106",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Garcia-69",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Gonzalez-68",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Grace-41",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Hannah-60",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Harper-33",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Harris-83",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Harris-92",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Hazel-20",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Henry-17",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Hernandez-102",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Hernandez-109",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Hill-75",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Hill-90",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Isabella-59",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Jack-21",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Jacob-49",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "James-23",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Johnson-105",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Johnson-108",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Johnson-94",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Layla-18",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Lee-86",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Leo-46",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Lewis-66",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Lewis-85",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Lily-37",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Lopez-89",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Lucas-29",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Madison-24",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Martin-71",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Martin-91",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Matthew-51",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Miller-107",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Moore-65",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Moore-96",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Natalie-36",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Nathan-45",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Nguyen-103",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Nguyen-76",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Noah-63",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Nora-34",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Oliver-28",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Olivia-19",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Owen-50",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Penelope-54",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Perez-72",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Ramirez-74",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Ramirez-80",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Ramirez-99",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Riley-32",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Rodriguez-67",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Ruby-58",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Ryan-48",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Samuel-16",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Sanchez-87",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Scarlett-57",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Scott-78",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Scott-98",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Sophia-27",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Stella-42",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Taylor-77",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Taylor-93",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Thomas-79",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Thompson-100",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Thompson-84",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Thompson-97",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Violet-61",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Walker-101",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "William-47",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Williams-95",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Wright-104",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Wright-88",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Young-73",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Zachary-52",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  },
+  {
+    "student_name": "Zoe-56",
+    "exam_name": "kt111_gemini_2",
+    "timestamp": "2025-04-06 13:47:21",
+    "status": "error",
+    "error": "ACCESS_TOKEN environment variable is not set",
+    "answers": [],
+    "wrong_answers": []
+  }
+]

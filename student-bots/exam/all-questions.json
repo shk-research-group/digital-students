@@ -1,0 +1,404 @@
+{
+    "questions": [
+        {
+            "question": "At a world level,\nA. globalization had indeed harmed the environment.\nB. globalization has done no harm to the environment.\nC. globalization always protects the environment.\nD. globalization has no environmental impact.",
+            "metadata": {
+                "question_id": "q1",
+                "question_position": 1,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "An example of how GNP accounts for services provided by foreign-owned capital (and GDP does not) is\nA) earnings of a Spanish factory with British owners counts only in Spain's GDP.\nB) earnings of a Spanish factory with British owners counts only in Britain's GNP.\nC) earnings of a Spanish factory counts in Spain's GNP but are part of Britain's GDP.\nD) earnings of a Spanish factory counts in Spain's GDP but are part of Britain's GNP.\nE) earnings of a Spanish factory counts in Spain's GNP but not in Britain's GDP or GNP.",
+            "metadata": {
+                "question_id": "q2",
+                "question_position": 2,
+                "answer": "D"
+            }
+        },
+        {
+            "question": "If Australia has relatively more land per worker, and Belgium has relatively more capital per worker, then if trade began between these two countries\nA) the relative price of the capital-intensive product would decrease in Belgium.\nB) relative product prices would diverge between Australia and Belgium.\nC) the relative price of the land-intensive product would increase in Australia.\nD) the relative price of the land-intensive product would increase in Belgium.\nE) the relative price of the capital-intensive product would increase in Australia.",
+            "metadata": {
+                "question_id": "q3",
+                "question_position": 3,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "The future date on which the currencies are actually exchanged is called what?\nA. the two-day window\nB. the two-day window\nC. the commitment date\nD. the forward exchange rate\nE. the value date",
+            "metadata": {
+                "question_id": "q4",
+                "question_position": 4,
+                "answer": "E"
+            }
+        },
+        {
+            "question": "Trade liberalization in developing countries has led to\nA. a large rise in exports as a percentage of GDP\nB. a large decline in exports as a percentage of GDP.\nC. a large rise in imports as a percentage of GDP\nD. a large decrease in imports as a percentage of GDP.",
+            "metadata": {
+                "question_id": "q5",
+                "question_position": 5,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "When Japan's MITI (Ministry of International Trade and Industry) focused resources on the semiconductor industry, and in particular on Random Access Memory (RAM), it was viewed as a typically successful Japanese foray into a new dynamic strategic sector. The results, as viewed by the late 1990s\nA. justified this view.\nB. led to similar structuring of industrial policy in the U.S.\nC. lent support to the Brander-Spencer model.\nD. helped shift the focus of economists away from Japanese-style industrial policy.\nE. propelled Japan into the leading country in high-tech manufacturing",
+            "metadata": {
+                "question_id": "q6",
+                "question_position": 6,
+                "answer": "D"
+            }
+        },
+        {
+            "question": "The gravity model offers a logical explanation for the fact that\nA. trade in services has grown faster than trade in goods.\nB. trade in manufactures has grown faster than in agricultural products.\nC. Intra-European Union trade exceeds international trade by the European Union.\nD. trade between Asia and the U.S. has grown faster than NAFTA trade\nE. the U.S. trades more with Western Europe than it does with Canada.",
+            "metadata": {
+                "question_id": "q7",
+                "question_position": 7,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "The Ricardian model demonstrates that\nA) trade between two countries may benefit both regardless of which good each exports.\nB) trade between two countries may benefit both if each exports the product in which it has a comparative advantage.\nC) trade between two countries will benefit both countries\nD) trade between two countries may benefit one but harm the other\nE) trade between two countries always benefits the country with a larger labor force",
+            "metadata": {
+                "question_id": "q8",
+                "question_position": 8,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "In the pre-World War I period, the U.S. exported mainly\nA. weapons.\nB. services.\nC. technology intensive products.\nD. manufactured goods.\nE. primary products including agricultural.",
+            "metadata": {
+                "question_id": "q9",
+                "question_position": 9,
+                "answer": "E"
+            }
+        },
+        {
+            "question": "Rapid growth of Chinese exports after 1990, and especially after 2001, when China joined the WTO,\nA. created much more hardship in the United States than most economists had realized.\nB. created only losers in the United States as most economists had expected.\nC. created only winners in the United States as most economists had expected\nD. created much more trade favor in the United States than most economists had realized.",
+            "metadata": {
+                "question_id": "q10",
+                "question_position": 10,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "A nation engaging in trade according to the Ricardian model will find its consumption bundle\nA) inside its production possibilities frontier.\nB) on its production possibilities frontier.\nC) outside its production possibilities frontier.\nD) inside its trade-partner's production possibilities frontier.\nE) on its trade-partner's production possibilities frontier.",
+            "metadata": {
+                "question_id": "q11",
+                "question_position": 11,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "A specific tariff provides home producers more protection when\nA) it is levied on manufactured goods rather than primary products.\nB) the home supply outnumbers the foreign imports.\nC) it is applied to a commodity with many grade variations.\nD) the home market buys cheaper products rather than expensive products.\nE) the home demand for a good is elastic with respect to price changes.",
+            "metadata": {
+                "question_id": "q12",
+                "question_position": 12,
+                "answer": "D"
+            }
+        },
+        {
+            "question": "Most developing countries have tried to\nA) liberalize capital movement.\nB) control capital movements.\nC) Hard to tell from the data.\nD) in the 1960s and 1970s control, now to liberalize.\nE) in the 1960s and 1970s liberalize, now to control.",
+            "metadata": {
+                "question_id": "q13",
+                "question_position": 13,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "A game-theory explanation of the paradox that even though all countries would benefit if each chose free trade, in fact each tends to follow protectionist policies is\nA. prisoner's dilemma.\nB. trade war.\nC. collective action.\nD. rent seeking.\nE. benefit-cost analysis",
+            "metadata": {
+                "question_id": "q14",
+                "question_position": 14,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "For most practical matters, economists assume that\nA. most individuals are risk neutral\nB. most individuals are risk lovers\nC. individuals are risk lovers.\nD. individuals are risk neutral\nE. individuals are risk averse",
+            "metadata": {
+                "question_id": "q15",
+                "question_position": 15,
+                "answer": "E"
+            }
+        },
+        {
+            "question": "A major economic\nA. benefit of fixed exchange rates is that they simplify economic calculations and provide a more predictable basis for decisions that involve international transactions than do floating rates.\nB. benefit of flexible exchange rates it that they simplify economic calculations and provide a more predictable basis for decisions that involve international transactions than do crawling peg rates.\nC. benefit of fixed exchange rates is that the value of goods will remain constant across a large region of consumers.\nD. benefit of floating exchange rates it that they simplify economic calculations and provide a more predictable basis for decisions that involve international transactions than do fixed rates.\nE. cost of fixed exchange rates it that they simplify economic calculations and provide a more predictable basis for decisions that involve international transactions than do currency board rates.",
+            "metadata": {
+                "question_id": "q16",
+                "question_position": 16,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "The quantitative importance of U.S. protection of the domestic clothing industry is best explained by the fact that\nA. most of the exporters of clothing into the U.S. are poor countries\nB. the technology involved is very advanced.\nC. this industry is an important employer of highly skilled labor\nD. this industry is an important employer of low skilled labor\nE. this industry is a politically well organized sector in the U.S.",
+            "metadata": {
+                "question_id": "q17",
+                "question_position": 17,
+                "answer": "D"
+            }
+        },
+        {
+            "question": "As a country begins to liberalize its capital account, what would you expect to happen to the difference between the interest rates for similar assets in this country and another country with open capital markets?\nA. it depends on the existing exchange rate.\nB. exponential divergence\nC. get larger\nD. stay the same\nE. get smaller",
+            "metadata": {
+                "question_id": "q18",
+                "question_position": 18,
+                "answer": "E"
+            }
+        },
+        {
+            "question": "If there are large disparities in wage levels between countries, then\nA. trade is likely to be harmful to the country with the low wages.\nB. trade is likely to be harmful to the country with the high wages.\nC. trade is likely to be harmful to both countries.\nD. trade is likely to have no effect on either country.\nE. trade is likely to be harmful to neither country.",
+            "metadata": {
+                "question_id": "q19",
+                "question_position": 19,
+                "answer": "E"
+            }
+        },
+        {
+            "question": "How do we allocate statistical discrepancy among the current, capital, and financial accounts?\nA. We have no way of knowing exactly how to allocate this discrepancy\nB. Depend on the degree of certainty which we attribute to these accounts.\nC. Divide it evenly amongst the three accounts.\nD. Depend on the convention adopted by the specific financial institution.\nE. Statistical discrepancy signals human errors made when dealing with financial accounts.",
+            "metadata": {
+                "question_id": "q20",
+                "question_position": 20,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "The international capital market is\nA. a set of arrangements by which individuals and firms exchange money now for promises to pay in the future.\nB. the place where emerging economies accept capital invested by banks\nC. the arrangement where banks build up their capital by borrowing from the Central Bank.\nD. the place where you can rent earth moving equipment anywhere in the world.\nE. exclusively concerned with the debt crisis that ended in the 1990s.",
+            "metadata": {
+                "question_id": "q21",
+                "question_position": 21,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "The optimum tariff is\nA) the best tariff a country can obtain via a WTO negotiated round of compromises.\nB) the tariff, which maximizes the terms of trade gains.\nC) the tariff, which maximizes the difference between terms of trade gains and terms of trade loses.\nD) not practical for a small country due to the likelihood of retaliation.\nE) not practical for a large country due to the likelihood of retaliation.",
+            "metadata": {
+                "question_id": "q22",
+                "question_position": 22,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "In developing countries, exchange rates tend to be\nA. floating with some government intervention.\nB. hard to tell from the data.\nC. pegged.\nD. run by currency boards.\nE. flexible.",
+            "metadata": {
+                "question_id": "q23",
+                "question_position": 23,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "According to Ricardo, a country will have a comparative advantage in the product in which its\nA) labor productivity is relatively low.\nB) labor productivity is relatively high.\nC) labor mobility is relatively low.\nD) labor mobility is relatively high.\nE) labor is outsourced to neighboring countries.",
+            "metadata": {
+                "question_id": "q24",
+                "question_position": 24,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "Which of the following is a fixed percentage of the value of an imported product?\nA) specific tariff\nB) ad valorem tariff\nC) nominal tariff\nD) effective protection tariff\nE) infant industry tariff",
+            "metadata": {
+                "question_id": "q25",
+                "question_position": 25,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "Since World War II, the likelihood that the job of a new college graduate will be directly or indirectly affected by world trade\nA. remained constant.\nB. increased.\nC. decreased.\nD. fluctuated widely with no clear trend.\nE. increased slightly before dropping off",
+            "metadata": {
+                "question_id": "q26",
+                "question_position": 26,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "The Indian city of Bangalore has become famous for its growing role in the\nA. global information technology industry\nB. global food and agriculture industry.\nC. global steel industry\nD. global movie industry.",
+            "metadata": {
+                "question_id": "q27",
+                "question_position": 27,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "Disposable income is national income\nA. less taxes collected from households and firms by the government\nB. plus net taxes collected from households and firms by the government.\nC. less net taxes collected from firms by the government.\nD. less net taxes collected from households by the government.\nE. less net taxes collected from households and firms by the government.",
+            "metadata": {
+                "question_id": "q28",
+                "question_position": 28,
+                "answer": "E"
+            }
+        },
+        {
+            "question": "Japan's trade policies with regard to rice reflect the fact that\nA. there would be no gains from trade available to Japan if it engaged in free trade in rice\nB. japanese rice farmers have significant political power.\nC. Japan has a comparative advantage in rice production and therefore exports most of its rice crop.\nD. there are gains from trade that Japan captures by engaging in free trade in rice.\nE. Japan imports most of the rice consumed in the country.",
+            "metadata": {
+                "question_id": "q29",
+                "question_position": 29,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "The effect of an export tariff on a large country is to ________ the terms of trade.\nA) always improve\nB) sometimes improve\nC) leave unchanged\nD) sometimes worsen\nE) always worsen",
+            "metadata": {
+                "question_id": "q30",
+                "question_position": 30,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "Which of the following is a fixed percentage of the value of an imported product?\nA) specific tariff\nB) ad valorem tariff\nC) nominal tariff\nD) effective protection tariff\nE) infant industry tariff",
+            "metadata": {
+                "question_id": "q31",
+                "question_position": 31,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "Working conditions for clothing workers in Bangladesh are very poor. If countries refuse to buy clothing from Bangladesh in order to encourage change, the effect is likely to be that\nA. firms will be forced to comply and workers will be better off.\nB. firms will refuse to comply, but workers will be better off.\nC. firms will try to comply and workers will be worse off.\nD. firms will try to comply and workers will be better off.\nE. regardless of how firms respond, workers will be better off.",
+            "metadata": {
+                "question_id": "q32",
+                "question_position": 32,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "The intertemporal tradeoff between present and future consumption is measured by the\nA. nominal interest rate.\nB. real interest rate.\nC. terms of trade.\nD. rate of economic growth.\nE. inflation rate.",
+            "metadata": {
+                "question_id": "q33",
+                "question_position": 33,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "In the 2-factor, 2 good Heckscher-Ohlin model, the two countries differ in\nA. relative abundance of factors of production\nB. the size of their economies\nC. military capabilities.\nD. tastes and preferences\nE. labor productivities.",
+            "metadata": {
+                "question_id": "q34",
+                "question_position": 34,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "In the 2-factor, 2 good Heckscher-Ohlin model, an influx of workers from across the border would\nA. move the point of production along the production possibility curve.\nB. shift the production possibility curve outward and decrease the production of the capital-intensive product.\nC. shift the production possibility curve outward and decrease the production of the labor-intensive product.\nD. shift the production possibility curve outward, and increase the production of both goods\nE. shift the possibility curve outward and displace preexisting labor",
+            "metadata": {
+                "question_id": "q35",
+                "question_position": 35,
+                "answer": "D"
+            }
+        },
+        {
+            "question": "The learning curve describes the _____ relationship between ____ and _____\nA. inverse; education; annual income\nB. direct, education; annual income\nC. direct, education; labor productivity\nD. inverse; unit cost; cumulative output\nE. direct; unit cost; cumulative output",
+            "metadata": {
+                "question_id": "q36",
+                "question_position": 36,
+                "answer": "D"
+            }
+        },
+        {
+            "question": "A country can control\nA. its flexible exchange rate\nB. and avoid risks in international trade.\nC. monetary policy oriented toward domestic goals\nD. foreign inflationary policies.\nE. international capital movements.",
+            "metadata": {
+                "question_id": "q37",
+                "question_position": 37,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "Terms of trade refers to\nA. what goods are exported.\nB. the volume of trade.\nC. the relative price at which trade occurs.\nD. the tariffs applied to trade.\nE. what goods are imported.",
+            "metadata": {
+                "question_id": "q38",
+                "question_position": 38,
+                "answer": "C"
+            }
+        },
+        {
+            "question": "What is the exchange rate between the dollar and the British pound if a pair of American jeans costs 60 dollars in New York and 30 Pounds in London?\nA. 2.5 dollars per British pound\nB. 3.5 dollars per British pound\nC. 1.5 dollars per British pound\nD. 0.5 dollars per British pound\nE. 2 dollars per British pound",
+            "metadata": {
+                "question_id": "q39",
+                "question_position": 39,
+                "answer": "E"
+            }
+        },
+        {
+            "question": "A country's budget constraint states that\nA) real income in the exporting country must be equal to real income in the importing country.\nB) unless a country engages in trade, the value of goods consumed cannot exceed the value of goods produced.\nC) a country will engage in trade only if the value of goods consumed exceeds the value of goods produced.\nD) a country will engage in trade only if the value of goods produced exceeds the value of goods consumed.\nE) whether or not a country engages in trade, the value of goods consumed must be equal to the value of goods produced.",
+            "metadata": {
+                "question_id": "q40",
+                "question_position": 40,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "A rise in the relative price of cloth leads the economy to produce ___ cloth and ___ food, therefore ___ the relative supply of cloth.\nA. more; less; increase\nB. more; less; decrease\nC. less; more; increase\nD. less; more; decrease",
+            "metadata": {
+                "question_id": "q41",
+                "question_position": 41,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "Economists consider the effects of free trade on income distribution to be ________ important than the effects on overall welfare because ________.\nA) more; the effects on income distribution are major and consequential\nB) less; the effects on income distribution are minor and inconsequential\nC) more; those who are harmed are not compensated by those who gain\nD) less; the wealthy benefit and only the poor lose\nE) less; those who are harmed can be compensated by those who gain",
+            "metadata": {
+                "question_id": "q42",
+                "question_position": 42,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "For many developing countries, natural resouces or agricultural commodities make up ____ share of exports\nA. close to no\nB. an important\nC. an unimportant\nD. close to a 10 percent\nE. close a to 5 percent",
+            "metadata": {
+                "question_id": "q43",
+                "question_position": 43,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "The share of ________ goods in employment is ________ across the country. The share of ________ goods in employment is ________ across the country.\nA) nontraded; uniform; traded; variable\nB) nondurable; uniform; durable; variable\nC) durable; uniform; nondurable; variable\nD) traded; uniform; nontraded; variable\nE) nontraded; variable; traded; uniform",
+            "metadata": {
+                "question_id": "q44",
+                "question_position": 44,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "How many dollars would it cost to buy an Edinburgh Woolen Mill sweater costing 50 British pounds if the exchange rate is 1.25 dollars per one British pound?\nA. 62.5 dollars\nC. 60 dollars\nD. 70 dollars\nE. 80 dollars",
+            "metadata": {
+                "question_id": "q45",
+                "question_position": 45,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "In presence of external economies of scale, given competition among producers, the downward-sloping average cost curve can be interpreted as\nA. a forward-falling supply curve.\nB. an upward-sloping supply curve.\nC. a horizontal supply curve.\nD. a vertical supply curve",
+            "metadata": {
+                "question_id": "q46",
+                "question_position": 46,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "The intertemporal budget constraint means that the value of Home's consumption over the two periods _____ the value of consumption goods produced in the two periods.\nA. equals\nB. is greater than\nC. is less than\nD. is different from",
+            "metadata": {
+                "question_id": "q47",
+                "question_position": 47,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "The two types of trade, intertemporal and pure asset swap ________ perfect substitutes, because ________.\nA) are; they both offer considerable payoff and are equal in the long run\nB) are; they both involve the smoothing out of now and future consumption\nC) are not; asset swapping is immediate and involves only assets, while intertemporal trade takes two time periods and involves both assets and goods/services\nD) could possibly be; different economic states occur at different points in time\nE) are not; asset swapping never relates to intertemporal trade",
+            "metadata": {
+                "question_id": "q48",
+                "question_position": 48,
+                "answer": "B"
+            }
+        },
+        {
+            "question": "The high rates of effective protection in some industries in Latin America and South Asia before 1970s allowed these industries\nA. to exist even when their cost of production was three or four times the price of the imports they replaced.\nB. to be more globally competitive.\nC. to have highly efficient scale production.\nD. to thrive and promote further exports.",
+            "metadata": {
+                "question_id": "q49",
+                "question_position": 49,
+                "answer": "A"
+            }
+        },
+        {
+            "question": "The United States is less dependent on trade than most other countries because\nA. the military power of the United States makes it less dependent on anything.\nB. the United States is a relatively large country with diverse resources.\nC. the United States is a \"Superpower.\"\nD. the United States invests in many other countries.\nE. many countries invest in the United States.",
+            "metadata": {
+                "question_id": "q50",
+                "question_position": 50,
+                "answer": "B"
+            }
+        }
+    ]
+}

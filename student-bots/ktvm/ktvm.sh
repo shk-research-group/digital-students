@@ -1,0 +1,1 @@
+python student-bots/ktvm/extract_test_data.py "/Users/khiemfle/Downloads/ECO111 full key.pdf" --output ktvm111_questions_output.json

@@ -1,0 +1,121 @@
+classDiagram
+    %% Entities
+    class Lecture {
+        +lectureMaterials : LectureMaterial[1..*]
+        +reflections : Reflection[0..*]
+    }
+    class LectureMaterial {
+        +contentItems : ContentItem[1..*]
+        +reflections : Reflection[0..*]
+    }
+    class ContentItem {
+        +text : String
+        +vectorEmbedding : VectorEmbedding
+        +complexityLevel : String
+        +reflections : Reflection[0..*]
+    }
+    class VectorEmbedding
+
+    class Student {
+        +knowledge : Knowledge
+        +skill : Skill
+        +studentObservations : StudentObservation[0..*]
+        +interactionObservations : InteractionObservation[0..*]
+        +reflections : Reflection[0..*]
+    }
+    class StudentObservation {
+        +timestamp : DateTime
+        +type : String
+        +importanceScore : Float
+        +contentItem : ContentItem
+        +reflection : Reflection
+    }
+    class InteractionObservation {
+        +timestamp : DateTime
+        +type : String
+        +importanceScore : Float
+        +interaction : Interaction
+        +reflection : Reflection
+    }
+    class Knowledge
+    class Skill
+
+    class Reflection {
+        +text : String
+        +relatedTo : Entity
+        +timestamp : DateTime
+    }
+
+    class Interaction
+    class QuestionAnswerSession {
+        +question : Question
+        +answer : Answer
+        +relatedConcepts : Concept[0..*]
+    }
+    class PeerDiscussion {
+        +participants : Student[2..*]
+        +discussionContent : String
+    }
+    Interaction <|-- QuestionAnswerSession
+    Interaction <|-- PeerDiscussion
+
+    class Question {
+        +text : String
+        +relatedConcept : Concept
+    }
+    class Answer {
+        +text : String
+        +source : String
+    }
+    class Concept
+
+    class Instructor {
+        +name : String
+        +reflections : Reflection[0..*]
+    }
+
+    %% Relationships
+    Lecture "1" --> "1..*" LectureMaterial : includes
+    LectureMaterial "1" --> "1..*" ContentItem : composedOf
+    ContentItem "1" --> "1" VectorEmbedding : hasEmbedding
+    Student "1" --> "0..*" ContentItem : ingests
+    Student "1" --> "0..*" StudentObservation : makes
+    StudentObservation "1" --> "1" ContentItem : on
+    StudentObservation "1" --> "1" Reflection : has
+    Student "1" --> "0..*" Interaction : participatesIn
+    InteractionObservation "1" --> "1" Interaction : basedOn
+    InteractionObservation "1" --> "1" Reflection : has
+    StudentObservation "1" --> "1" Knowledge : updates
+    StudentObservation "1" --> "1" Skill : updates
+    InteractionObservation "1" --> "1" Knowledge : updates
+    InteractionObservation "1" --> "1" Skill : updates
+    QuestionAnswerSession "1" --> "1" Question : has
+    QuestionAnswerSession "1" --> "1" Answer : provides
+    QuestionAnswerSession "1" --> "0..*" Concept : relatesTo
+    Student "1" --> "0..*" InteractionObservation : makes
+    PeerDiscussion "1" --> "0..*" InteractionObservation : resultsIn
+    Student "1" --> "0..*" Instructor : interactsWith
+
+    %% Additional Notes
+    Note right of StudentObservation
+        Types: Clarification, Confusion, Insight
+        importanceScore: Float between 0.0 and 1.0
+    end Note
+
+    Note right of InteractionObservation
+        Derived from interactions like QuestionAnswerSession or PeerDiscussion
+        importanceScore: Float between 0.0 and 1.0
+    end Note
+
+    Note right of Reflection
+        Represents reflections associated with entities
+        Can be student-generated or system-generated
+    end Note
+
+    Note right of VectorEmbedding
+        Semantic representation of ContentItem
+    end Note
+
+    Note right of Answer
+        Source can be Instructor or Peer
+    end Note
