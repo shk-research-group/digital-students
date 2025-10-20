@@ -1,0 +1,371 @@
+{
+  "name": "redis-cache-google-sheet",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Workflow Input Trigger').item.json.document_key }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $('Workflow Input Trigger').item.json.sheet_key }}",
+          "mode": "name"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "={{ $('Workflow Input Trigger').item.json.filter_type }}",
+              "lookupValue": "={{ $('Workflow Input Trigger').item.json.filter_value }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1024,
+        -288
+      ],
+      "id": "4fcb1e14-ba00-42d5-bf01-5b56aa86efc0",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5",
+          "name": "khiemfle-google-sheet"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "document_key"
+            },
+            {
+              "name": "sheet_key"
+            },
+            {
+              "name": "filter_type"
+            },
+            {
+              "name": "filter_value"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "64965972-b51c-4420-bcaa-a8c59a221e05",
+      "name": "Workflow Input Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "key": "={{ \"gsheet-\" + $input.item.json.document_key + \"-\" + $input.item.json.sheet_key + \"-\" + $input.item.json.filter_type + \"-\" + $input.item.json.filter_value }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        240,
+        112
+      ],
+      "id": "1cfcd674-5b26-45f5-b941-9ea15248ec43",
+      "name": "Redis",
+      "credentials": {
+        "redis": {
+          "id": "R1ukt8AzDTSfVf1H",
+          "name": "redis-lenovo-env"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e261be5d-9bb7-40f7-8083-1e32d2481bdc",
+              "leftValue": "={{ $json.propertyName }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        432,
+        -48
+      ],
+      "id": "7746b7bb-e71c-4fd1-94b5-cb119a5c5f98",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "={{ \"gsheet-\" + $('Workflow Input Trigger').item.json.document_key + \"-\" + $('Workflow Input Trigger').item.json.sheet_key + \"-\" + $('Workflow Input Trigger').item.json.filter_type + \"-\" + $('Workflow Input Trigger').item.json.filter_value }}",
+        "value": "={{ $input.all().toJsonString() }}",
+        "expire": true,
+        "ttl": 3600
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1248,
+        -288
+      ],
+      "id": "db6be54e-b195-4219-bac8-17eb25a11432",
+      "name": "Redis1",
+      "credentials": {
+        "redis": {
+          "id": "R1ukt8AzDTSfVf1H",
+          "name": "redis-lenovo-env"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return JSON.parse($input.first().json.propertyName)"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        864,
+        64
+      ],
+      "id": "20e458af-03dd-4123-8f4f-0c552e205986",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Workflow Input Trigger').item.json.document_key != null && $('Workflow Input Trigger').item.json.sheet_key != null && $('Workflow Input Trigger').item.json.filter_type != null && $('Workflow Input Trigger').item.json.filter_value != null }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "with_filter"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "be82ce3c-c288-4838-83ca-24372f0c8046",
+                    "leftValue": "={{ $('Workflow Input Trigger').item.json.document_key != null && $('Workflow Input Trigger').item.json.sheet_key != null}}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "without_filter"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        784,
+        -288
+      ],
+      "id": "498f3491-bc6d-4df9-9be9-7d76ab422ef6",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Workflow Input Trigger').item.json.document_key }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $('Workflow Input Trigger').item.json.sheet_key }}",
+          "mode": "name"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1008,
+        -128
+      ],
+      "id": "5ce650d8-92fc-4f86-8881-8d3fb214555d",
+      "name": "Google Sheets1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5",
+          "name": "khiemfle-google-sheet"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Workflow Input Trigger": [
+      {
+        "json": {
+          "document_key": "1wpb2iji8OJxaraxx_Yf-mqrGYwgIW_JBSUaoIKnIH74",
+          "sheet_key": "variable"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Workflow Input Trigger": {
+      "main": [
+        [
+          {
+            "node": "Redis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Redis1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis1": {
+      "main": [
+        []
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "Redis1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "de5db545-75af-4608-9f3f-8e1674c648b0",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "61cc11a44edc6e674427319d34a261aeb179b7627e3d1e18dc54cf4a467dc9d6"
+  },
+  "id": "NhnFXqZ9vgnvjgTb",
+  "tags": [
+    {
+      "createdAt": "2025-10-20T02:50:41.089Z",
+      "updatedAt": "2025-10-20T02:50:41.089Z",
+      "id": "LwSyiltfhKNoLWfF",
+      "name": "student-bot"
+    }
+  ]
+}

@@ -1,0 +1,1140 @@
+{
+  "name": "workflow-studentbot-dynamic-prompts-flowise",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "c479ac8a-cd76-4a97-abd7-8d84ab4b378a",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "var query = $input.first().json.body.text;\nconsole.log(query);\nconst regex = /@(?:[\\w-]+)\\s+#([\\w-]+)\\s+([\\s\\S]+)/; \nconst [_, studentName, question] = query.match(regex);\n\nreturn [\n  {\n    'student_name': studentName,\n    'question': question\n  }\n];"
+      },
+      "id": "41da310c-301e-4416-8017-a1a80c699392",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -128,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "var skill = $('retrieve-prompts').first().json\nvar student = $('retrieve-student').first().json\nvar output = {\n  'student_id': student.id,\n  'question': $('Code').first().json.question\n}\nif (skill) {\n  var overrideConfig = {};\n  overrideConfig['responsePrompt'] = `You are a student simulator with the personality is \\\"${skill.prompt}\\\".\\nUsing the provided context, answer the question to the best of your ability using the resources provided.\\nIf there is nothing in the context relevant to the question at hand, just say \\\"Hmm, I'm not sure.\\\" Don't try to make up an answer.\\n------------\\n{context}\\n------------\\nREMEMBER: If there is no relevant information within the context, just say \\\"Hmm, I'm not sure.\\\" Don't try to make up an answer.`;\n  output['overrideConfig'] = overrideConfig;\n}\n\nreturn [\n  output\n];"
+      },
+      "id": "050b1188-b334-4556-aaa8-1f5432679fae",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2384,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://flowise.imutably.com/api/v1/prediction/be4c6360-43b5-4df9-8092-68c40dadc773",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $input.first().json }}",
+        "options": {}
+      },
+      "id": "9ccfdb3a-f179-4531-a292-1b9f95fb5874",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3040,
+        -160
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "BSA4c04F90gFIYbH",
+          "name": "chatgpt-webhook-basic-auth"
+        },
+        "httpHeaderAuth": {
+          "id": "VFhnsWo1b0LbA9R1",
+          "name": "flowise"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "var skill = $('retrieve-prompts').first().json\nvar student = $('retrieve-student').first().json\nvar output = {\n  'student_id': student.id,\n  'question': $('Code').first().json.question\n}\nif (skill) {\n  var overrideConfig = {};\n  overrideConfig['responsePrompt'] = `You are a student simulator with the personality is \\\"${skill.prompt}\\\".\\nUsing the provided context, answer the question to the best of your ability using the resources provided.\\nIf there is nothing in the context relevant to the question at hand, just say \\\"Hmm, I'm not sure.\\\" Don't try to make up an answer.\\n------------\\n{context}\\n------------\\nREMEMBER: If there is no relevant information within the context, just say \\\"Hmm, I'm not sure.\\\" Don't try to make up an answer.`;\n  output['overrideConfig'] = overrideConfig;\n}\n\nreturn [\n  output\n];"
+      },
+      "id": "01cb952f-e4b9-4dd2-bc7f-cba7c04c149f",
+      "name": "Code2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5794b027-55fd-4328-991b-14ca0e630525",
+              "name": "name",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "92befdf7-f74c-4b79-9721-064c61939059",
+              "name": "description",
+              "value": "={{ $json.description }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        640,
+        80
+      ],
+      "id": "c91de88b-057c-41c5-9c50-125a00c28235",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        928,
+        320
+      ],
+      "id": "688cb1cb-1ee0-42c9-aad0-eb7cb082056f",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "9FqhqKj88YIqYQSg",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.question }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Please classify the user's input into one of the following categories based on the descriptions provided. Use the specified formatting for your response. Only output the JSON and do not provide any explanations.\n\nCategories:\n{{ $('Code3').first().json.categories.map(category => `- ${category.name}: ${category.description}`).join('\\n') }}\n\nOutput format:\n{\n    \"category\": \"SelectedCategory\"\n}\n\nReplace \"SelectedCategory\" with the appropriate category name.\n`"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        1264,
+        -224
+      ],
+      "id": "5ef23cc2-f58f-4ea3-bbc5-f4c7220269d9",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "jsCode": "var ret = [];\nfor (const item of $input.all()) {\n  ret.push({\n    \"name\": item.json.name,\n    \"description\": item.json.description\n  })\n}\n\nreturn [\n  {\n    \"categories\": ret\n  }\n]"
+      },
+      "id": "9c0ea7bc-14b9-41c0-91ca-309f3c3e09ac",
+      "name": "Code3",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        864,
+        48
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch"
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1024,
+        -224
+      ],
+      "id": "f7b6a064-09d3-45cc-b55a-2dd3bdf6b171",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"category\":\"selectedCategory\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1408,
+        0
+      ],
+      "id": "5d6838fc-2f42-4275-b64f-6aad4cf3e8b8",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch"
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1664,
+        -336
+      ],
+      "id": "45c452be-1ae7-4e34-9d09-4e03a78dd221",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "jsCode": "var category = \"\";\nif (Object.keys($(\"Basic LLM Chain\")).length > 0) {\n  category = $(\"Basic LLM Chain\").first().json.output.category\n} else {\n  category = $('Webhook').first().json.body.root_prompt;\n}\n\nconsole.log(category);\n\n// Get the template for the selected category\nvar template = \"\";\nfor (const item of $('Merge1').all()) {\n  if (item.json.name == category) {\n    template = item.json.prompt;\n  }\n}\nconsole.log(template);\n\n// Create a map of subPrompts from Merge2\nconst subPromptMap = {};\nfor (const item of $('Merge2').all()) {\n  subPromptMap[item.json.name] = item.json.prompt;\n}\n\n// Replace all subPrompt references in the template\nfor (const [name, prompt] of Object.entries(subPromptMap)) {\n  const placeholder = `{{prompt-${name}}}`;\n  template = template.replace(placeholder, prompt);\n}\n\nconsole.log(template);\n\nreturn [\n  {\n    \"final_template\": template\n  }\n];"
+      },
+      "id": "87dea682-0bd0-44f6-aa83-ede69006fea7",
+      "name": "Code4",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2064,
+        -288
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "useDataOfInput": 2
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1824,
+        -160
+      ],
+      "id": "ddfcdc64-668d-4f21-8d26-bdc13d3285ca",
+      "name": "Merge2"
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "useDataOfInput": 2
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2352,
+        -128
+      ],
+      "id": "3a15bb5e-7043-41be-a804-07a3e0cf2a1c",
+      "name": "Merge3"
+    },
+    {
+      "parameters": {
+        "jsCode": "var template = $('Code4').first().json.final_template\n\nconst studentVarMap = {};\nfor (const item of $('Merge4').all()) {\n  studentVarMap[item.json.var_id] = item.json.value;\n}\n\nconst varMap = {};\nfor (const item of $('Merge3').all()) {\n  // Use student value if it exists, otherwise use default value\n  varMap[item.json.name] = studentVarMap[item.json.id] || item.json.default_value;\n}\n\n// Replace all subPrompt references in the template\nfor (const [name, prompt] of Object.entries(varMap)) {\n  const placeholder = `{{var-${name}}}`;\n  template = template.replaceAll(placeholder, prompt);\n}\n\nconsole.log(template)\n\nvar student = $('retrieve-student').first().json\nvar output = {\n  'student_id': student.id,\n  'question': $('Code').first().json.question\n}\n\nvar overrideConfig = {};\noverrideConfig['responsePrompt'] = template;\noverrideConfig['systemMessagePrompt'] = template;\noverrideConfig['sessionId'] = student.name + student.id + new Date().toISOString().slice(0,10).replace(/-/g,'') + ($('Webhook').first().json.body.metadata.exam_name || '');\noutput['overrideConfig'] = overrideConfig;\n\n\nreturn [\n  output\n];"
+      },
+      "id": "f2de7e1d-9578-4b04-9cb6-5ed0cdb38998",
+      "name": "Code5",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2768,
+        -96
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "useDataOfInput": 2
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2528,
+        -16
+      ],
+      "id": "59f52c59-4a17-419d-be4c-1915ed835348",
+      "name": "Merge4"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "29b96adf-2182-4365-a5c1-8247e58809b7",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -336,
+        304
+      ],
+      "id": "649ecc1c-c3f7-48a6-a03a-6d2157058816",
+      "name": "Webhook",
+      "webhookId": "29b96adf-2182-4365-a5c1-8247e58809b7"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $input.all() }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        3568,
+        -96
+      ],
+      "id": "ba7aa32a-2950-40b5-881f-81ab8ceef498",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "36964bbc-4501-4115-8530-d3b5500f602b",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3280,
+        -128
+      ],
+      "id": "e1220356-186d-41d7-bb0b-9d695dbca6f6",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "60d12158-8c83-4c4e-adcd-6f22166d05ca",
+              "leftValue": "={{ $json.body.root_prompt }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        272,
+        -368
+      ],
+      "id": "00696469-b10d-41d0-9a7f-bda8300bd00a",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://flowise.imutably.com/api/v1/prediction/9e4dce81-a43d-49b6-b5ce-24ec37685786",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $input.first().json }}",
+        "options": {}
+      },
+      "id": "d5996d0b-852b-4e78-9f11-0fb89ecae5b5",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3072,
+        80
+      ],
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "BSA4c04F90gFIYbH",
+          "name": "chatgpt-webhook-basic-auth"
+        },
+        "httpHeaderAuth": {
+          "id": "VFhnsWo1b0LbA9R1",
+          "name": "flowise"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "NhnFXqZ9vgnvjgTb",
+          "mode": "list",
+          "cachedResultName": "redis-cache-google-sheet"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "document_key": "1wpb2iji8OJxaraxx_Yf-mqrGYwgIW_JBSUaoIKnIH74",
+            "sheet_key": "prompt",
+            "filter_type": "type",
+            "filter_value": "SubPrompt"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "document_key",
+              "displayName": "document_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "sheet_key",
+              "displayName": "sheet_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_type",
+              "displayName": "filter_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_value",
+              "displayName": "filter_value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        400,
+        288
+      ],
+      "id": "493a9a26-9978-4e81-b451-4915fa81d402",
+      "name": "Execute Workflow"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "NhnFXqZ9vgnvjgTb",
+          "mode": "list",
+          "cachedResultName": "redis-cache-google-sheet"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "document_key": "1wpb2iji8OJxaraxx_Yf-mqrGYwgIW_JBSUaoIKnIH74",
+            "sheet_key": "prompt",
+            "filter_type": "type",
+            "filter_value": "RootPrompt"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "document_key",
+              "displayName": "document_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "sheet_key",
+              "displayName": "sheet_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_type",
+              "displayName": "filter_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_value",
+              "displayName": "filter_value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        400,
+        48
+      ],
+      "id": "9898925b-910b-4a82-8d68-70c8cdae8100",
+      "name": "Execute Workflow1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "NhnFXqZ9vgnvjgTb",
+          "mode": "list",
+          "cachedResultName": "redis-cache-google-sheet"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "document_key": "1wpb2iji8OJxaraxx_Yf-mqrGYwgIW_JBSUaoIKnIH74",
+            "sheet_key": "variable"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "document_key",
+              "displayName": "document_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "sheet_key",
+              "displayName": "sheet_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_type",
+              "displayName": "filter_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "filter_value",
+              "displayName": "filter_value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        512,
+        464
+      ],
+      "id": "d0fccced-3487-4241-991a-1db786b39dd6",
+      "name": "Execute Workflow2"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "NhnFXqZ9vgnvjgTb",
+          "mode": "list",
+          "cachedResultName": "redis-cache-google-sheet"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "document_key": "1wpb2iji8OJxaraxx_Yf-mqrGYwgIW_JBSUaoIKnIH74",
+            "sheet_key": "student_var",
+            "filter_type": "student_id",
+            "filter_value": "={{ $json.id }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "document_key",
+              "displayName": "document_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "sheet_key",
+              "displayName": "sheet_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_type",
+              "displayName": "filter_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_value",
+              "displayName": "filter_value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        352,
+        768
+      ],
+      "id": "343d805e-bd32-48c5-8d4e-c4b3ee3dfc9f",
+      "name": "Execute Workflow4"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "NhnFXqZ9vgnvjgTb",
+          "mode": "list",
+          "cachedResultName": "redis-cache-google-sheet"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "document_key": "1wpb2iji8OJxaraxx_Yf-mqrGYwgIW_JBSUaoIKnIH74",
+            "sheet_key": "student",
+            "filter_type": "name",
+            "filter_value": "={{ $('Code').first().json.student_name }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "document_key",
+              "displayName": "document_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "sheet_key",
+              "displayName": "sheet_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_type",
+              "displayName": "filter_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_value",
+              "displayName": "filter_value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        48,
+        304
+      ],
+      "id": "c4bc63fb-e819-4d80-bdf2-515f5f285847",
+      "name": "retrieve-student"
+    }
+  ],
+  "pinData": {
+    "Execute Workflow Trigger": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n.khiemfle.com",
+            "user-agent": "Mattermost-Bot/1.1",
+            "content-length": "782",
+            "accept": "application/json",
+            "accept-encoding": "gzip",
+            "content-type": "application/json",
+            "x-forwarded-for": "49.13.219.239",
+            "x-forwarded-host": "n8n.khiemfle.com",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "0cf91d7a271d",
+            "x-real-ip": "49.13.219.239"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "token": "pwrwan8dcirtdm69izfbqxs4mw",
+            "team_id": "cs1co49xb7nadytp9dxr7gktjo",
+            "team_domain": "imutably",
+            "channel_id": "k1bx4bcmp3r37r4uf9sz6ntawh",
+            "channel_name": "test-student-bot",
+            "timestamp": 1739092669197,
+            "user_id": "1zkizerhhfd93dd15phzzywzha",
+            "user_name": "khiemfle",
+            "post_id": "bjenakzaejrtzxgnyf5tmhph8h",
+            "text": "@student-bot #Stuart Answer this multiple choices question\n\n1) The meaning of \"terms of trade\" is\n\nA) the amount of exports sold by a country.\nB) the tariffs in place between two trading countries.\nC) the quantities of imports received in free trade.\nD) the price of a country's exports divided by the price of its imports.\nE) the price conditions bargained for in international markets.",
+            "trigger_word": "@student-bot",
+            "file_ids": "x63dpkay13r1fp3xtbrtqkhkqc"
+          },
+          "webhookUrl": "https://n8n.khiemfle.com/webhook/ba8ed073-c1b6-4135-aeb8-e2763f6bedf4",
+          "executionMode": "production",
+          "rootId": "bjenakzaejrtzxgnyf5tmhph8h"
+        }
+      }
+    ],
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n.khiemfle.com",
+            "user-agent": "python-requests/2.32.3",
+            "content-length": "775",
+            "accept": "*/*",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "authorization": "Basic Y2hhdGdwdDohZFA/QTIqUnVIJl5GeUZ+dlp3S2lgSnVnKjlSWHpoI249IXA=",
+            "content-type": "application/json",
+            "x-forwarded-for": "91.152.71.193",
+            "x-forwarded-host": "n8n.khiemfle.com",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "0cf91d7a271d",
+            "x-real-ip": "91.152.71.193"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "root_prompt": "DoingExam",
+            "text": "@student-bot #Olivia-19\n\nThere are 50 questions. This is question 3:\n\nIf Australia has relatively more land per worker, and Belgium has relatively more capital per worker, then if trade began between these two countries\nA) the relative price of the capital-intensive product would decrease in Belgium.\nB) relative product prices would diverge between Australia and Belgium.\nC) the relative price of the land-intensive product would increase in Australia.\nD) the relative price of the land-intensive product would increase in Belgium.\nE) the relative price of the capital-intensive product would increase in Australia.",
+            "metadata": {
+              "question_id": "q3",
+              "question_position": 3,
+              "answer": "C",
+              "position": 3,
+              "total_options": 0
+            }
+          },
+          "webhookUrl": "https://n8n.khiemfle.com/webhook/29b96adf-2182-4365-a5c1-8247e58809b7",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "retrieve-student",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        []
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code3": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "Code4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code4": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge3": {
+      "main": [
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code5": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge4": {
+      "main": [
+        [
+          {
+            "node": "Code5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook": {
+      "main": [
+        []
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        []
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Execute Workflow1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow2": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Execute Workflow4": {
+      "main": [
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "retrieve-student": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Execute Workflow4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "172"
+  },
+  "versionId": "f9c6e7ca-63b5-4e93-a0f6-900d79c8afb3",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "61cc11a44edc6e674427319d34a261aeb179b7627e3d1e18dc54cf4a467dc9d6"
+  },
+  "id": "AlhsdCAJS7VWELkw",
+  "tags": [
+    {
+      "createdAt": "2025-10-20T02:50:41.089Z",
+      "updatedAt": "2025-10-20T02:50:41.089Z",
+      "id": "LwSyiltfhKNoLWfF",
+      "name": "student-bot"
+    }
+  ]
+}

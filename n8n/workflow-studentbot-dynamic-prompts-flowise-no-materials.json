@@ -1,0 +1,976 @@
+{
+  "name": "workflow-studentbot-dynamic-prompts-flowise-no-materials",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "e928d0a3-8f26-4c40-afa1-b71205fa2096",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "var query = $input.first().json.body.text;\nconsole.log(query);\nconst regex = /@(?:[\\w-]+)\\s+#([\\w-]+)\\s+([\\s\\S]+)/; \nconst [_, studentName, question] = query.match(regex);\n\nreturn [\n  {\n    'student_name': studentName,\n    'question': question\n  }\n];"
+      },
+      "id": "800e9d73-8602-4007-8471-56ac59611ea4",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -128,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "var skill = $('retrieve-prompts').first().json\nvar student = $('retrieve-student').first().json\nvar output = {\n  'student_id': student.id,\n  'question': $('Code').first().json.question\n}\nif (skill) {\n  var overrideConfig = {};\n  overrideConfig['responsePrompt'] = `You are a student simulator with the personality is \\\"${skill.prompt}\\\".\\nUsing the provided context, answer the question to the best of your ability using the resources provided.\\nIf there is nothing in the context relevant to the question at hand, just say \\\"Hmm, I'm not sure.\\\" Don't try to make up an answer.\\n------------\\n{context}\\n------------\\nREMEMBER: If there is no relevant information within the context, just say \\\"Hmm, I'm not sure.\\\" Don't try to make up an answer.`;\n  output['overrideConfig'] = overrideConfig;\n}\n\nreturn [\n  output\n];"
+      },
+      "id": "67e6767e-e3c7-4f65-96a4-2df8476d9c0a",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2384,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://flowise.imutably.com/api/v1/prediction/21697fa5-576a-42c4-96a5-35cd1075a138",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $input.first().json }}",
+        "options": {}
+      },
+      "id": "c7a2eb24-38d1-4de3-92d6-e88eca9bfa34",
+      "name": "HTTP Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3040,
+        -160
+      ],
+      "retryOnFail": true,
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "BSA4c04F90gFIYbH",
+          "name": "chatgpt-webhook-basic-auth"
+        },
+        "httpHeaderAuth": {
+          "id": "VFhnsWo1b0LbA9R1",
+          "name": "flowise"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "var skill = $('retrieve-prompts').first().json\nvar student = $('retrieve-student').first().json\nvar output = {\n  'student_id': student.id,\n  'question': $('Code').first().json.question\n}\nif (skill) {\n  var overrideConfig = {};\n  overrideConfig['responsePrompt'] = `You are a student simulator with the personality is \\\"${skill.prompt}\\\".\\nUsing the provided context, answer the question to the best of your ability using the resources provided.\\nIf there is nothing in the context relevant to the question at hand, just say \\\"Hmm, I'm not sure.\\\" Don't try to make up an answer.\\n------------\\n{context}\\n------------\\nREMEMBER: If there is no relevant information within the context, just say \\\"Hmm, I'm not sure.\\\" Don't try to make up an answer.`;\n  output['overrideConfig'] = overrideConfig;\n}\n\nreturn [\n  output\n];"
+      },
+      "id": "0f816fca-0512-413b-8585-0eb74d5ab206",
+      "name": "Code2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        928,
+        320
+      ],
+      "id": "8279bf94-bb8c-4c31-a5cb-b6d251f64e3a",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "9FqhqKj88YIqYQSg",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch"
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1664,
+        -336
+      ],
+      "id": "9f643160-fcb8-4b67-8884-1b879920ba02",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "jsCode": "var category = $('Webhook').first().json.body.root_prompt;\n\n// Get the template for the selected category\nvar template = \"\";\nfor (const item of $('Merge1').all()) {\n  if (item.json.name == category) {\n    template = item.json.prompt;\n  }\n}\nconsole.log(template);\n\n// Create a map of subPrompts from Merge2\nconst subPromptMap = {};\nfor (const item of $('Merge2').all()) {\n  subPromptMap[item.json.name] = item.json.prompt;\n}\n\n// Replace all subPrompt references in the template\nfor (const [name, prompt] of Object.entries(subPromptMap)) {\n  const placeholder = `{{prompt-${name}}}`;\n  template = template.replace(placeholder, prompt);\n}\n\nconsole.log(template);\n\nreturn [\n  {\n    \"final_template\": template\n  }\n];"
+      },
+      "id": "ec3becec-737c-4a26-9c53-d1aaddaf2712",
+      "name": "Code4",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2064,
+        -288
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "useDataOfInput": 2
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1824,
+        -160
+      ],
+      "id": "af6dc89c-f805-49a2-bfe1-1d3b95c709ae",
+      "name": "Merge2"
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "useDataOfInput": 2
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2352,
+        -128
+      ],
+      "id": "5280eabc-a982-46e2-acd1-9e19a15cd66d",
+      "name": "Merge3"
+    },
+    {
+      "parameters": {
+        "jsCode": "var template = $('Code4').first().json.final_template\n\nconst studentVarMap = {};\nfor (const item of $('Merge4').all()) {\n  studentVarMap[item.json.var_id] = item.json.value;\n}\n\nconst varMap = {};\nfor (const item of $('Merge3').all()) {\n  // Use student value if it exists, otherwise use default value\n  varMap[item.json.name] = studentVarMap[item.json.id] || item.json.default_value;\n}\n\n// Replace all subPrompt references in the template\nfor (const [name, prompt] of Object.entries(varMap)) {\n  const placeholder = `{{var-${name}}}`;\n  template = template.replaceAll(placeholder, prompt);\n}\n\nconsole.log(template)\n\nvar student = $('retrieve-student').first().json\nvar output = {\n  'student_id': student.id,\n  'question': $('Code').first().json.question\n}\n\nvar overrideConfig = {};\noverrideConfig['systemMessagePrompt'] = template;\noverrideConfig['sessionId'] = student.name + student.id + new Date().toISOString().slice(0,10).replace(/-/g,'') + ($('Webhook').first().json.body.metadata.exam_name || '');\noutput['overrideConfig'] = overrideConfig;\n\n\nreturn [\n  output\n];"
+      },
+      "id": "0575c9ab-b077-445f-99b8-06b8a134aeb5",
+      "name": "Code5",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2768,
+        -96
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "useDataOfInput": 2
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2528,
+        -16
+      ],
+      "id": "72a221ce-1acf-4727-ac01-104d44a71f45",
+      "name": "Merge4"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "139644a9-2fd6-4c59-ba4a-ecf406da70bb",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -336,
+        304
+      ],
+      "id": "ebd2abcd-805f-4fa6-9a51-3049219ed485",
+      "name": "Webhook",
+      "webhookId": "139644a9-2fd6-4c59-ba4a-ecf406da70bb"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $input.all() }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        3568,
+        -96
+      ],
+      "id": "9554ab30-1337-4f73-9f27-ed7a7ed1094f",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "36964bbc-4501-4115-8530-d3b5500f602b",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3280,
+        -128
+      ],
+      "id": "5c083444-5876-401e-a504-40974965d6ca",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "60d12158-8c83-4c4e-adcd-6f22166d05ca",
+              "leftValue": "={{ $json.body.root_prompt }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        272,
+        -368
+      ],
+      "id": "5c63f638-0b7d-4843-abf0-b6137bda4c23",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://flowise.imutably.com/api/v1/prediction/9e4dce81-a43d-49b6-b5ce-24ec37685786",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $input.first().json }}",
+        "options": {}
+      },
+      "id": "bb713b26-2fff-491f-87ff-21c6de23381d",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3072,
+        80
+      ],
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "BSA4c04F90gFIYbH",
+          "name": "chatgpt-webhook-basic-auth"
+        },
+        "httpHeaderAuth": {
+          "id": "VFhnsWo1b0LbA9R1",
+          "name": "flowise"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "NhnFXqZ9vgnvjgTb",
+          "mode": "list",
+          "cachedResultName": "redis-cache-google-sheet"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "document_key": "1wpb2iji8OJxaraxx_Yf-mqrGYwgIW_JBSUaoIKnIH74",
+            "sheet_key": "prompt",
+            "filter_type": "type",
+            "filter_value": "SubPrompt"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "document_key",
+              "displayName": "document_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "sheet_key",
+              "displayName": "sheet_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_type",
+              "displayName": "filter_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_value",
+              "displayName": "filter_value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        400,
+        288
+      ],
+      "id": "ee2d2184-e7bb-4848-87be-60803a614f8f",
+      "name": "Execute Workflow"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "NhnFXqZ9vgnvjgTb",
+          "mode": "list",
+          "cachedResultName": "redis-cache-google-sheet"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "document_key": "1wpb2iji8OJxaraxx_Yf-mqrGYwgIW_JBSUaoIKnIH74",
+            "sheet_key": "prompt",
+            "filter_type": "type",
+            "filter_value": "RootPrompt"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "document_key",
+              "displayName": "document_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "sheet_key",
+              "displayName": "sheet_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_type",
+              "displayName": "filter_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_value",
+              "displayName": "filter_value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        400,
+        48
+      ],
+      "id": "e9705891-afe5-4ed7-aa18-a0ba271209b2",
+      "name": "Execute Workflow1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "NhnFXqZ9vgnvjgTb",
+          "mode": "list",
+          "cachedResultName": "redis-cache-google-sheet"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "document_key": "1wpb2iji8OJxaraxx_Yf-mqrGYwgIW_JBSUaoIKnIH74",
+            "sheet_key": "variable"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "document_key",
+              "displayName": "document_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "sheet_key",
+              "displayName": "sheet_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_type",
+              "displayName": "filter_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "filter_value",
+              "displayName": "filter_value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        512,
+        464
+      ],
+      "id": "1db1d1fc-e0d9-46a0-b56b-a9d85859c848",
+      "name": "Execute Workflow2"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "NhnFXqZ9vgnvjgTb",
+          "mode": "list",
+          "cachedResultName": "redis-cache-google-sheet"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "document_key": "1wpb2iji8OJxaraxx_Yf-mqrGYwgIW_JBSUaoIKnIH74",
+            "sheet_key": "student_var",
+            "filter_type": "student_id",
+            "filter_value": "={{ $json.id }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "document_key",
+              "displayName": "document_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "sheet_key",
+              "displayName": "sheet_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_type",
+              "displayName": "filter_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_value",
+              "displayName": "filter_value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        352,
+        768
+      ],
+      "id": "ed67f546-bc43-4a81-88fc-b5ca8eb038b9",
+      "name": "Execute Workflow4"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "NhnFXqZ9vgnvjgTb",
+          "mode": "list",
+          "cachedResultName": "redis-cache-google-sheet"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "document_key": "1wpb2iji8OJxaraxx_Yf-mqrGYwgIW_JBSUaoIKnIH74",
+            "sheet_key": "student",
+            "filter_type": "name",
+            "filter_value": "={{ $('Code').first().json.student_name }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "document_key",
+              "displayName": "document_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "sheet_key",
+              "displayName": "sheet_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_type",
+              "displayName": "filter_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "filter_value",
+              "displayName": "filter_value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        48,
+        304
+      ],
+      "id": "1c2b30e4-327c-4b29-a05e-98fc1bc4a558",
+      "name": "retrieve-student"
+    }
+  ],
+  "pinData": {
+    "Execute Workflow Trigger": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n.khiemfle.com",
+            "user-agent": "Mattermost-Bot/1.1",
+            "content-length": "782",
+            "accept": "application/json",
+            "accept-encoding": "gzip",
+            "content-type": "application/json",
+            "x-forwarded-for": "49.13.219.239",
+            "x-forwarded-host": "n8n.khiemfle.com",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "0cf91d7a271d",
+            "x-real-ip": "49.13.219.239"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "token": "pwrwan8dcirtdm69izfbqxs4mw",
+            "team_id": "cs1co49xb7nadytp9dxr7gktjo",
+            "team_domain": "imutably",
+            "channel_id": "k1bx4bcmp3r37r4uf9sz6ntawh",
+            "channel_name": "test-student-bot",
+            "timestamp": 1739092669197,
+            "user_id": "1zkizerhhfd93dd15phzzywzha",
+            "user_name": "khiemfle",
+            "post_id": "bjenakzaejrtzxgnyf5tmhph8h",
+            "text": "@student-bot #Stuart Answer this multiple choices question\n\n1) The meaning of \"terms of trade\" is\n\nA) the amount of exports sold by a country.\nB) the tariffs in place between two trading countries.\nC) the quantities of imports received in free trade.\nD) the price of a country's exports divided by the price of its imports.\nE) the price conditions bargained for in international markets.",
+            "trigger_word": "@student-bot",
+            "file_ids": "x63dpkay13r1fp3xtbrtqkhkqc"
+          },
+          "webhookUrl": "https://n8n.khiemfle.com/webhook/ba8ed073-c1b6-4135-aeb8-e2763f6bedf4",
+          "executionMode": "production",
+          "rootId": "bjenakzaejrtzxgnyf5tmhph8h"
+        }
+      }
+    ],
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n.khiemfle.com",
+            "user-agent": "python-requests/2.32.3",
+            "content-length": "18688",
+            "accept": "*/*",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "authorization": "Basic Y2hhdGdwdDohZFA/QTIqUnVIJl5GeUZ+dlp3S2lgSnVnKjlSWHpoI249IXA=",
+            "content-type": "application/json",
+            "x-forwarded-for": "91.152.71.193",
+            "x-forwarded-host": "n8n.khiemfle.com",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "a60e3f2eac09",
+            "x-real-ip": "91.152.71.193"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "root_prompt": "DoingExamNoVARKAllTests",
+            "text": "@student-bot #Ethan-15\n\nThere are 50 questions. Please answer each with the letter of the correct option only.\n\nQuestion 1:\nAt a world level,\nA. globalization had indeed harmed the environment.\nB. globalization has done no harm to the environment.\nC. globalization always protects the environment.\nD. globalization has no environmental impact.\n\nQuestion 2:\nAn example of how GNP accounts for services provided by foreign-owned capital (and GDP does not) is\nA) earnings of a Spanish factory with British owners counts only in Spain's GDP.\nB) earnings of a Spanish factory with British owners counts only in Britain's GNP.\nC) earnings of a Spanish factory counts in Spain's GNP but are part of Britain's GDP.\nD) earnings of a Spanish factory counts in Spain's GDP but are part of Britain's GNP.\nE) earnings of a Spanish factory counts in Spain's GNP but not in Britain's GDP or GNP.\n\nQuestion 3:\nIf Australia has relatively more land per worker, and Belgium has relatively more capital per worker, then if trade began between these two countries\nA) the relative price of the capital-intensive product would decrease in Belgium.\nB) relative product prices would diverge between Australia and Belgium.\nC) the relative price of the land-intensive product would increase in Australia.\nD) the relative price of the land-intensive product would increase in Belgium.\nE) the relative price of the capital-intensive product would increase in Australia.\n\nQuestion 4:\nThe future date on which the currencies are actually exchanged is called what?\nA. the two-day window\nB. the two-day window\nC. the commitment date\nD. the forward exchange rate\nE. the value date\n\nQuestion 5:\nTrade liberalization in developing countries has led to\nA. a large rise in exports as a percentage of GDP\nB. a large decline in exports as a percentage of GDP.\nC. a large rise in imports as a percentage of GDP\nD. a large decrease in imports as a percentage of GDP.\n\nQuestion 6:\nWhen Japan's MITI (Ministry of International Trade and Industry) focused resources on the semiconductor industry, and in particular on Random Access Memory (RAM), it was viewed as a typically successful Japanese foray into a new dynamic strategic sector. The results, as viewed by the late 1990s\nA. justified this view.\nB. led to similar structuring of industrial policy in the U.S.\nC. lent support to the Brander-Spencer model.\nD. helped shift the focus of economists away from Japanese-style industrial policy.\nE. propelled Japan into the leading country in high-tech manufacturing\n\nQuestion 7:\nThe gravity model offers a logical explanation for the fact that\nA. trade in services has grown faster than trade in goods.\nB. trade in manufactures has grown faster than in agricultural products.\nC. Intra-European Union trade exceeds international trade by the European Union.\nD. trade between Asia and the U.S. has grown faster than NAFTA trade\nE. the U.S. trades more with Western Europe than it does with Canada.\n\nQuestion 8:\nThe Ricardian model demonstrates that\nA) trade between two countries may benefit both regardless of which good each exports.\nB) trade between two countries may benefit both if each exports the product in which it has a comparative advantage.\nC) trade between two countries will benefit both countries\nD) trade between two countries may benefit one but harm the other\nE) trade between two countries always benefits the country with a larger labor force\n\nQuestion 9:\nIn the pre-World War I period, the U.S. exported mainly\nA. weapons.\nB. services.\nC. technology intensive products.\nD. manufactured goods.\nE. primary products including agricultural.\n\nQuestion 10:\nRapid growth of Chinese exports after 1990, and especially after 2001, when China joined the WTO,\nA. created much more hardship in the United States than most economists had realized.\nB. created only losers in the United States as most economists had expected.\nC. created only winners in the United States as most economists had expected\nD. created much more trade favor in the United States than most economists had realized.\n\nQuestion 11:\nA nation engaging in trade according to the Ricardian model will find its consumption bundle\nA) inside its production possibilities frontier.\nB) on its production possibilities frontier.\nC) outside its production possibilities frontier.\nD) inside its trade-partner's production possibilities frontier.\nE) on its trade-partner's production possibilities frontier.\n\nQuestion 12:\nA specific tariff provides home producers more protection when\nA) it is levied on manufactured goods rather than primary products.\nB) the home supply outnumbers the foreign imports.\nC) it is applied to a commodity with many grade variations.\nD) the home market buys cheaper products rather than expensive products.\nE) the home demand for a good is elastic with respect to price changes.\n\nQuestion 13:\nMost developing countries have tried to\nA) liberalize capital movement.\nB) control capital movements.\nC) Hard to tell from the data.\nD) in the 1960s and 1970s control, now to liberalize.\nE) in the 1960s and 1970s liberalize, now to control.\n\nQuestion 14:\nA game-theory explanation of the paradox that even though all countries would benefit if each chose free trade, in fact each tends to follow protectionist policies is\nA. prisoner's dilemma.\nB. trade war.\nC. collective action.\nD. rent seeking.\nE. benefit-cost analysis\n\nQuestion 15:\nFor most practical matters, economists assume that\nA. most individuals are risk neutral\nB. most individuals are risk lovers\nC. individuals are risk lovers.\nD. individuals are risk neutral\nE. individuals are risk averse\n\nQuestion 16:\nA major economic\nA. benefit of fixed exchange rates is that they simplify economic calculations and provide a more predictable basis for decisions that involve international transactions than do floating rates.\nB. benefit of flexible exchange rates it that they simplify economic calculations and provide a more predictable basis for decisions that involve international transactions than do crawling peg rates.\nC. benefit of fixed exchange rates is that the value of goods will remain constant across a large region of consumers.\nD. benefit of floating exchange rates it that they simplify economic calculations and provide a more predictable basis for decisions that involve international transactions than do fixed rates.\nE. cost of fixed exchange rates it that they simplify economic calculations and provide a more predictable basis for decisions that involve international transactions than do currency board rates.\n\nQuestion 17:\nThe quantitative importance of U.S. protection of the domestic clothing industry is best explained by the fact that\nA. most of the exporters of clothing into the U.S. are poor countries\nB. the technology involved is very advanced.\nC. this industry is an important employer of highly skilled labor\nD. this industry is an important employer of low skilled labor\nE. this industry is a politically well organized sector in the U.S.\n\nQuestion 18:\nAs a country begins to liberalize its capital account, what would you expect to happen to the difference between the interest rates for similar assets in this country and another country with open capital markets?\nA. it depends on the existing exchange rate.\nB. exponential divergence\nC. get larger\nD. stay the same\nE. get smaller\n\nQuestion 19:\nIf there are large disparities in wage levels between countries, then\nA. trade is likely to be harmful to the country with the low wages.\nB. trade is likely to be harmful to the country with the high wages.\nC. trade is likely to be harmful to both countries.\nD. trade is likely to have no effect on either country.\nE. trade is likely to be harmful to neither country.\n\nQuestion 20:\nHow do we allocate statistical discrepancy among the current, capital, and financial accounts?\nA. We have no way of knowing exactly how to allocate this discrepancy\nB. Depend on the degree of certainty which we attribute to these accounts.\nC. Divide it evenly amongst the three accounts.\nD. Depend on the convention adopted by the specific financial institution.\nE. Statistical discrepancy signals human errors made when dealing with financial accounts.\n\nQuestion 21:\nThe international capital market is\nA. a set of arrangements by which individuals and firms exchange money now for promises to pay in the future.\nB. the place where emerging economies accept capital invested by banks\nC. the arrangement where banks build up their capital by borrowing from the Central Bank.\nD. the place where you can rent earth moving equipment anywhere in the world.\nE. exclusively concerned with the debt crisis that ended in the 1990s.\n\nQuestion 22:\nThe optimum tariff is\nA) the best tariff a country can obtain via a WTO negotiated round of compromises.\nB) the tariff, which maximizes the terms of trade gains.\nC) the tariff, which maximizes the difference between terms of trade gains and terms of trade loses.\nD) not practical for a small country due to the likelihood of retaliation.\nE) not practical for a large country due to the likelihood of retaliation.\n\nQuestion 23:\nIn developing countries, exchange rates tend to be\nA. floating with some government intervention.\nB. hard to tell from the data.\nC. pegged.\nD. run by currency boards.\nE. flexible.\n\nQuestion 24:\nAccording to Ricardo, a country will have a comparative advantage in the product in which its\nA) labor productivity is relatively low.\nB) labor productivity is relatively high.\nC) labor mobility is relatively low.\nD) labor mobility is relatively high.\nE) labor is outsourced to neighboring countries.\n\nQuestion 25:\nWhich of the following is a fixed percentage of the value of an imported product?\nA) specific tariff\nB) ad valorem tariff\nC) nominal tariff\nD) effective protection tariff\nE) infant industry tariff\n\nQuestion 26:\nSince World War II, the likelihood that the job of a new college graduate will be directly or indirectly affected by world trade\nA. remained constant.\nB. increased.\nC. decreased.\nD. fluctuated widely with no clear trend.\nE. increased slightly before dropping off\n\nQuestion 27:\nThe Indian city of Bangalore has become famous for its growing role in the\nA. global information technology industry\nB. global food and agriculture industry.\nC. global steel industry\nD. global movie industry.\n\nQuestion 28:\nDisposable income is national income\nA. less taxes collected from households and firms by the government\nB. plus net taxes collected from households and firms by the government.\nC. less net taxes collected from firms by the government.\nD. less net taxes collected from households by the government.\nE. less net taxes collected from households and firms by the government.\n\nQuestion 29:\nJapan's trade policies with regard to rice reflect the fact that\nA. there would be no gains from trade available to Japan if it engaged in free trade in rice\nB. japanese rice farmers have significant political power.\nC. Japan has a comparative advantage in rice production and therefore exports most of its rice crop.\nD. there are gains from trade that Japan captures by engaging in free trade in rice.\nE. Japan imports most of the rice consumed in the country.\n\nQuestion 30:\nThe effect of an export tariff on a large country is to ________ the terms of trade.\nA) always improve\nB) sometimes improve\nC) leave unchanged\nD) sometimes worsen\nE) always worsen\n\nQuestion 31:\nWhich of the following is a fixed percentage of the value of an imported product?\nA) specific tariff\nB) ad valorem tariff\nC) nominal tariff\nD) effective protection tariff\nE) infant industry tariff\n\nQuestion 32:\nWorking conditions for clothing workers in Bangladesh are very poor. If countries refuse to buy clothing from Bangladesh in order to encourage change, the effect is likely to be that\nA. firms will be forced to comply and workers will be better off.\nB. firms will refuse to comply, but workers will be better off.\nC. firms will try to comply and workers will be worse off.\nD. firms will try to comply and workers will be better off.\nE. regardless of how firms respond, workers will be better off.\n\nQuestion 33:\nThe intertemporal tradeoff between present and future consumption is measured by the\nA. nominal interest rate.\nB. real interest rate.\nC. terms of trade.\nD. rate of economic growth.\nE. inflation rate.\n\nQuestion 34:\nIn the 2-factor, 2 good Heckscher-Ohlin model, the two countries differ in\nA. relative abundance of factors of production\nB. the size of their economies\nC. military capabilities.\nD. tastes and preferences\nE. labor productivities.\n\nQuestion 35:\nIn the 2-factor, 2 good Heckscher-Ohlin model, an influx of workers from across the border would\nA. move the point of production along the production possibility curve.\nB. shift the production possibility curve outward and decrease the production of the capital-intensive product.\nC. shift the production possibility curve outward and decrease the production of the labor-intensive product.\nD. shift the production possibility curve outward, and increase the production of both goods\nE. shift the possibility curve outward and displace preexisting labor\n\nQuestion 36:\nThe learning curve describes the _____ relationship between ____ and _____\nA. inverse; education; annual income\nB. direct, education; annual income\nC. direct, education; labor productivity\nD. inverse; unit cost; cumulative output\nE. direct; unit cost; cumulative output\n\nQuestion 37:\nA country can control\nA. its flexible exchange rate\nB. and avoid risks in international trade.\nC. monetary policy oriented toward domestic goals\nD. foreign inflationary policies.\nE. international capital movements.\n\nQuestion 38:\nTerms of trade refers to\nA. what goods are exported.\nB. the volume of trade.\nC. the relative price at which trade occurs.\nD. the tariffs applied to trade.\nE. what goods are imported.\n\nQuestion 39:\nWhat is the exchange rate between the dollar and the British pound if a pair of American jeans costs 60 dollars in New York and 30 Pounds in London?\nA. 2.5 dollars per British pound\nB. 3.5 dollars per British pound\nC. 1.5 dollars per British pound\nD. 0.5 dollars per British pound\nE. 2 dollars per British pound\n\nQuestion 40:\nA country's budget constraint states that\nA) real income in the exporting country must be equal to real income in the importing country.\nB) unless a country engages in trade, the value of goods consumed cannot exceed the value of goods produced.\nC) a country will engage in trade only if the value of goods consumed exceeds the value of goods produced.\nD) a country will engage in trade only if the value of goods produced exceeds the value of goods consumed.\nE) whether or not a country engages in trade, the value of goods consumed must be equal to the value of goods produced.\n\nQuestion 41:\nA rise in the relative price of cloth leads the economy to produce ___ cloth and ___ food, therefore ___ the relative supply of cloth.\nA. more; less; increase\nB. more; less; decrease\nC. less; more; increase\nD. less; more; decrease\n\nQuestion 42:\nEconomists consider the effects of free trade on income distribution to be ________ important than the effects on overall welfare because ________.\nA) more; the effects on income distribution are major and consequential\nB) less; the effects on income distribution are minor and inconsequential\nC) more; those who are harmed are not compensated by those who gain\nD) less; the wealthy benefit and only the poor lose\nE) less; those who are harmed can be compensated by those who gain\n\nQuestion 43:\nFor many developing countries, natural resouces or agricultural commodities make up ____ share of exports\nA. close to no\nB. an important\nC. an unimportant\nD. close to a 10 percent\nE. close a to 5 percent\n\nQuestion 44:\nThe share of ________ goods in employment is ________ across the country. The share of ________ goods in employment is ________ across the country.\nA) nontraded; uniform; traded; variable\nB) nondurable; uniform; durable; variable\nC) durable; uniform; nondurable; variable\nD) traded; uniform; nontraded; variable\nE) nontraded; variable; traded; uniform\n\nQuestion 45:\nHow many dollars would it cost to buy an Edinburgh Woolen Mill sweater costing 50 British pounds if the exchange rate is 1.25 dollars per one British pound?\nA. 62.5 dollars\nC. 60 dollars\nD. 70 dollars\nE. 80 dollars\n\nQuestion 46:\nIn presence of external economies of scale, given competition among producers, the downward-sloping average cost curve can be interpreted as\nA. a forward-falling supply curve.\nB. an upward-sloping supply curve.\nC. a horizontal supply curve.\nD. a vertical supply curve\n\nQuestion 47:\nThe intertemporal budget constraint means that the value of Home's consumption over the two periods _____ the value of consumption goods produced in the two periods.\nA. equals\nB. is greater than\nC. is less than\nD. is different from\n\nQuestion 48:\nThe two types of trade, intertemporal and pure asset swap ________ perfect substitutes, because ________.\nA) are; they both offer considerable payoff and are equal in the long run\nB) are; they both involve the smoothing out of now and future consumption\nC) are not; asset swapping is immediate and involves only assets, while intertemporal trade takes two time periods and involves both assets and goods/services\nD) could possibly be; different economic states occur at different points in time\nE) are not; asset swapping never relates to intertemporal trade\n\nQuestion 49:\nThe high rates of effective protection in some industries in Latin America and South Asia before 1970s allowed these industries\nA. to exist even when their cost of production was three or four times the price of the imports they replaced.\nB. to be more globally competitive.\nC. to have highly efficient scale production.\nD. to thrive and promote further exports.\n\nQuestion 50:\nThe United States is less dependent on trade than most other countries because\nA. the military power of the United States makes it less dependent on anything.\nB. the United States is a relatively large country with diverse resources.\nC. the United States is a \"Superpower.\"\nD. the United States invests in many other countries.\nE. many countries invest in the United States.",
+            "metadata": {
+              "exam_name": "ktqt_gemini_2",
+              "total_questions": 50,
+              "student_name": "Ethan-15"
+            }
+          },
+          "webhookUrl": "https://n8n.khiemfle.com/webhook/139644a9-2fd6-4c59-ba4a-ecf406da70bb",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "retrieve-student",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        []
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "Code4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code4": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge3": {
+      "main": [
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code5": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge4": {
+      "main": [
+        [
+          {
+            "node": "Code5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook": {
+      "main": [
+        []
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        []
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        []
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Execute Workflow1": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow2": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Execute Workflow4": {
+      "main": [
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "retrieve-student": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Execute Workflow4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "172"
+  },
+  "versionId": "079f2ac3-b89b-4d3c-af8f-66bc0909f7da",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "61cc11a44edc6e674427319d34a261aeb179b7627e3d1e18dc54cf4a467dc9d6"
+  },
+  "id": "g0yuJIAh2CswzmfX",
+  "tags": [
+    {
+      "createdAt": "2025-10-20T02:50:41.089Z",
+      "updatedAt": "2025-10-20T02:50:41.089Z",
+      "id": "LwSyiltfhKNoLWfF",
+      "name": "student-bot"
+    }
+  ]
+}
